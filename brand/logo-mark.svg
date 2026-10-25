@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- Cyan to Violet Gradient for Layer 1 -->
+    <linearGradient id="layerGrad1" x1="64" y1="96" x2="320" y2="352" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+
+    <!-- Shader Violet Gradient for Layer 2 -->
+    <linearGradient id="layerGrad2" x1="192" y1="160" x2="448" y2="416" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C084FC"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+
+    <!-- Telemetry Emerald Accent Glow -->
+    <linearGradient id="emeraldGrad" x1="120" y1="240" x2="392" y2="272" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <filter id="shadowFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas Container -->
+  <rect width="512" height="512" rx="112" fill="#090D16"/>
+
+  <!-- Subtle Blueprint Coordinates Grid -->
+  <path d="M64 128H448M64 256H448M64 384H448M128 64V448M256 64V448M384 64V448" stroke="#1E293B" stroke-width="1.5" stroke-dasharray="4 8"/>
+
+  <!-- Exploded Layer 1: Left Pillar & Top Plate (Cyan GPU Buffer) -->
+  <g filter="url(#shadowFilter)">
+    <path d="M128 128H200V384H128V128Z" fill="url(#layerGrad1)" rx="8"/>
+    <path d="M128 128L184 72H256L200 128H128Z" fill="#7DD3FC" opacity="0.8"/>
+  </g>
+
+  <!-- Exploded Layer 2: Right Pillar & Bottom Plate (Violet DOM Bridge) -->
+  <g filter="url(#shadowFilter)">
+    <path d="M312 128H384V384H312V128Z" fill="url(#layerGrad2)" rx="8"/>
+    <path d="M384 128L440 72H368L312 128H384Z" fill="#E9D5FF" opacity="0.6"/>
+  </g>
+
+  <!-- Bridge Layer (Central Crossbar of "H" - Pixel-to-DOM Synchronizer) -->
+  <g filter="url(#shadowFilter)">
+    <rect x="180" y="232" width="152" height="48" rx="8" fill="url(#emeraldGrad)"/>
+    <!-- Matrix Pulse Coordinate Indicator -->
+    <circle cx="256" cy="256" r="6" fill="#F8FAFC"/>
+  </g>
+</svg>

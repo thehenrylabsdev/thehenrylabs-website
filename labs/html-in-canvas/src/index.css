@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary: #f8fafc;
+    --color-on-primary: #090d16;
+    --color-secondary: #38bdf8;
+    --color-on-secondary: #090d16;
+    --color-tertiary: #c084fc;
+    --color-on-tertiary: #090d16;
+    --color-accent: #34d399;
+    --color-surface: #0f172a;
+    --color-surface-elevated: #1e293b;
+    --color-neutral: #cbd5e1;
+    --color-border: #64748b;
+    --color-background: #090d16;
+    --color-focus-ring: #38bdf8;
+    --color-error: #f87171;
+    --color-success: #34d399;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  }
+
+  code,
+  pre,
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.lab-grid-bg {
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.11), transparent 55%),
+    radial-gradient(circle at 85% 25%, rgba(192, 132, 252, 0.09), transparent 45%),
+    linear-gradient(to right, rgba(100, 116, 139, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 116, 139, 0.12) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+}
+
+/* Custom focus visibility per WCAG 2.2 SC 2.4.11 & 2.4.13 */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}

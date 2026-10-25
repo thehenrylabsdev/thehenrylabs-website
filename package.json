@@ -1,0 +1,23 @@
+{
+  "name": "thehenrylabs-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.15.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "lint": "turbo run lint",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "new:lab": "tsx scripts/new-lab.ts",
+    "audit:seo": "tsx scripts/seo-audit.ts"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "turbo": "^2.11.10",
+    "typescript": "^5.8.3"
+  }
+}
