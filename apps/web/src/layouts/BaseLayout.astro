@@ -38,6 +38,22 @@ const altPath = getLocalizedPath(currentPath, altLang);
       image={image}
       publishedTime={publishedTime}
     />
+    <!-- Immediate Client-Side Locale Detection -->
+    <script is:inline>
+      (function () {
+        try {
+          var cookies = document.cookie || '';
+          if (cookies.indexOf('lang=') !== -1) return;
+          var path = window.location.pathname;
+          if (path.indexOf('/vi') === 0) return;
+          var userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+          if (userLang.indexOf('vi') === 0 || userLang.indexOf('vi-') === 0) {
+            var target = '/vi' + (path === '/' ? '/' : path);
+            window.location.replace(target);
+          }
+        } catch (_) {}
+      })();
+    </script>
   </head>
   <body class="bg-[#090D16] text-[#F8FAFC] antialiased selection:bg-[#38BDF8] selection:text-[#090D16] min-h-screen flex flex-col font-sans">
     <!-- Top Sticky Header -->
@@ -99,6 +115,7 @@ const altPath = getLocalizedPath(currentPath, altLang);
           <!-- Language Switcher Button -->
           <a
             href={altPath}
+            onclick={`document.cookie="lang=${altLang}; path=/; max-age=31536000; SameSite=Lax"`}
             class="flex min-h-[44px] items-center gap-1.5 rounded-lg border border-[#64748B]/60 bg-[#0F172A] px-3 py-2 text-xs font-mono font-medium text-[#F8FAFC] hover:border-[#38BDF8] hover:text-[#38BDF8] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] transition-colors"
             aria-label={`Switch to ${altLang === 'vi' ? 'Tiếng Việt' : 'English'}`}
           >
