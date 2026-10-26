@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { labConfig } from '../../data/labs';
+import { Boxes, ExternalLink, ArrowRight, Cpu } from 'lucide-astro';
+---
+
+<BaseLayout
+  title="Interactive Laboratories | The Henry Labs"
+  description="Explore interactive web platform laboratories, empirical benchmark suites, and multi-framework graphics sandboxes built by Henry Nguyen."
+>
+  <div class="py-16 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="max-w-2xl mb-12">
+        <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8]">Technology Demonstrations</span>
+        <h1 class="font-display text-4xl font-extrabold text-[#F8FAFC] tracking-tight mt-2 mb-4">
+          Interactive Laboratories
+        </h1>
+        <p class="text-base text-[#94A3B8] leading-relaxed">
+          A curated gallery of client-side engineering prototypes, real-time benchmarks, and graphics sandboxes across varied frameworks (React, WebGL, WebGPU, and vanilla Web Standards).
+        </p>
+      </div>
+
+      <!-- Labs Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Lab 1: HTML-in-Canvas -->
+        <article class="rounded-2xl border border-[#38BDF8]/40 bg-[#0F172A] p-8 flex flex-col justify-between hover:border-[#38BDF8] transition-colors relative overflow-hidden group">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#38BDF8] via-[#C084FC] to-[#34D399]"></div>
+          
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-4">
+              <span class="rounded bg-[#38BDF8]/10 text-[#38BDF8] px-2.5 py-1 font-semibold flex items-center gap-1.5">
+                <Boxes class="h-3.5 w-3.5" aria-hidden="true" />
+                <span>Tier 2 · Static App</span>
+              </span>
+              <span class="text-[#34D399] font-medium">Status: Live</span>
+            </div>
+
+            <h2 class="font-display text-2xl font-bold text-[#F8FAFC] mb-3 group-hover:text-[#38BDF8] transition-colors">
+              <a href="/labs/html-in-canvas/">
+                {labConfig.title.en}
+              </a>
+            </h2>
+
+            <p class="text-sm text-[#94A3B8] leading-relaxed mb-6">
+              {labConfig.summary.en}
+            </p>
+
+            <!-- Stack tags -->
+            <div class="flex flex-wrap gap-2 mb-8">
+              {labConfig.stack.map((tech: string) => (
+                <span class="rounded-md border border-[#64748B]/40 bg-[#1E293B]/60 px-2.5 py-0.5 text-xs font-mono text-[#CBD5E1]">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-6 border-t border-[#64748B]/30">
+            <a
+              href="/labs/html-in-canvas/app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#38BDF8] hover:underline"
+            >
+              <span>Launch Sandbox</span>
+              <ExternalLink class="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+
+            <a
+              href="/labs/html-in-canvas/"
+              class="inline-flex items-center gap-1.5 text-xs font-mono text-[#F8FAFC] hover:text-[#38BDF8] transition-colors"
+            >
+              <span>Read Case Study</span>
+              <ArrowRight class="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+          </div>
+        </article>
+
+        <!-- Placeholder for upcoming Lab 2: WebGPU Shader Compute -->
+        <article class="rounded-2xl border border-[#64748B]/30 bg-[#0F172A]/50 p-8 flex flex-col justify-between border-dashed">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-4 text-[#94A3B8]">
+              <span class="rounded bg-[#1E293B] px-2.5 py-1 flex items-center gap-1.5">
+                <Cpu class="h-3.5 w-3.5" aria-hidden="true" />
+                <span>Tier 1 · Inline</span>
+              </span>
+              <span>Status: Coming Soon</span>
+            </div>
+
+            <h2 class="font-display text-2xl font-bold text-[#94A3B8] mb-3">
+              WebGPU Distributed Particle Physics
+            </h2>
+
+            <p class="text-sm text-[#64748B] leading-relaxed mb-6">
+              Massively parallel GPGPU compute shader simulation running 1,000,000 gravitational bodies with zero main-thread CPU pressure.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-8">
+              <span class="rounded-md border border-[#64748B]/20 bg-[#1E293B]/30 px-2.5 py-0.5 text-xs font-mono text-[#64748B]">
+                webgpu
+              </span>
+              <span class="rounded-md border border-[#64748B]/20 bg-[#1E293B]/30 px-2.5 py-0.5 text-xs font-mono text-[#64748B]">
+                wgsl
+              </span>
+              <span class="rounded-md border border-[#64748B]/20 bg-[#1E293B]/30 px-2.5 py-0.5 text-xs font-mono text-[#64748B]">
+                typescript
+              </span>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-[#64748B]/20 text-xs font-mono text-[#64748B]">
+            Scaffolded via <code>pnpm new:lab webgpu-particles</code>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

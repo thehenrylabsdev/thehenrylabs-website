@@ -1,0 +1,186 @@
+---
+import Seo from '../components/seo/Seo.astro';
+import { getLangFromUrl, useTranslations, getLocalizedPath, getAlternateLang } from '../i18n/utils';
+import { Layers, Github, Linkedin, Twitter, Globe, ArrowUpRight } from 'lucide-astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  type?: 'website' | 'article' | 'profile' | undefined;
+  image?: string | undefined;
+  publishedTime?: string | undefined;
+}
+
+const { title, description, type, image, publishedTime } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentPath = Astro.url.pathname;
+const altLang = getAlternateLang(lang);
+const altPath = getLocalizedPath(currentPath, altLang);
+---
+
+<!doctype html>
+<html lang={lang} class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <Seo
+      title={title}
+      description={description}
+      lang={lang}
+      type={type}
+      image={image}
+      publishedTime={publishedTime}
+    />
+  </head>
+  <body class="bg-[#090D16] text-[#F8FAFC] antialiased selection:bg-[#38BDF8] selection:text-[#090D16] min-h-screen flex flex-col font-sans">
+    <!-- Top Sticky Header -->
+    <header class="sticky top-0 z-50 border-b border-[#64748B]/40 bg-[#090D16]/90 backdrop-blur-md">
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <!-- Logo Brand -->
+        <a
+          href={getLocalizedPath('/', lang)}
+          class="flex min-h-[44px] shrink-0 items-center gap-3 font-display text-base font-bold text-[#F8FAFC] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] rounded-lg p-1"
+          aria-label="The Henry Labs Home"
+        >
+          <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-[#38BDF8] text-[#090D16] shadow-sm">
+            <Layers class="h-6 w-6" aria-hidden="true" />
+          </span>
+          <div class="flex flex-col">
+            <span class="leading-tight tracking-tight text-sm font-extrabold uppercase">THE HENRY LABS</span>
+            <span class="font-mono text-[11px] font-normal text-[#38BDF8]">
+              Backend · AI · Web Platform
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-1 font-mono text-xs uppercase tracking-wider" aria-label="Main Navigation">
+          <a
+            href={getLocalizedPath('/', lang)}
+            class={`px-3 py-2 rounded-md min-h-[44px] flex items-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#38BDF8] ${currentPath === getLocalizedPath('/', lang) ? 'text-[#38BDF8] font-bold bg-[#1E293B]/60' : 'text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#0F172A]'}`}
+          >
+            {t('nav', 'home')}
+          </a>
+          <a
+            href={getLocalizedPath('/work/', lang)}
+            class={`px-3 py-2 rounded-md min-h-[44px] flex items-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#38BDF8] ${currentPath.includes('/work') ? 'text-[#38BDF8] font-bold bg-[#1E293B]/60' : 'text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#0F172A]'}`}
+          >
+            {t('nav', 'work')}
+          </a>
+          <a
+            href={getLocalizedPath('/labs/', lang)}
+            class={`px-3 py-2 rounded-md min-h-[44px] flex items-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#38BDF8] ${currentPath.includes('/labs') ? 'text-[#38BDF8] font-bold bg-[#1E293B]/60' : 'text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#0F172A]'}`}
+          >
+            {t('nav', 'labs')}
+          </a>
+          <a
+            href={getLocalizedPath('/about/', lang)}
+            class={`px-3 py-2 rounded-md min-h-[44px] flex items-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#38BDF8] ${currentPath.includes('/about') ? 'text-[#38BDF8] font-bold bg-[#1E293B]/60' : 'text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#0F172A]'}`}
+          >
+            {t('nav', 'about')}
+          </a>
+          <a
+            href={getLocalizedPath('/resume/', lang)}
+            class={`px-3 py-2 rounded-md min-h-[44px] flex items-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#38BDF8] ${currentPath.includes('/resume') ? 'text-[#38BDF8] font-bold bg-[#1E293B]/60' : 'text-[#CBD5E1] hover:text-[#F8FAFC] hover:bg-[#0F172A]'}`}
+          >
+            {t('nav', 'resume')}
+          </a>
+        </nav>
+
+        <!-- Right Action Items & Language Switcher -->
+        <div class="flex items-center gap-2">
+          <!-- Language Switcher Button -->
+          <a
+            href={altPath}
+            class="flex min-h-[44px] items-center gap-1.5 rounded-lg border border-[#64748B]/60 bg-[#0F172A] px-3 py-2 text-xs font-mono font-medium text-[#F8FAFC] hover:border-[#38BDF8] hover:text-[#38BDF8] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] transition-colors"
+            aria-label={`Switch to ${altLang === 'vi' ? 'Tiếng Việt' : 'English'}`}
+          >
+            <Globe class="h-4 w-4" aria-hidden="true" />
+            <span>{t('nav', 'language')}</span>
+          </a>
+
+          <!-- Hire Me CTA -->
+          <a
+            href="mailto:thehenrylabs.dev@gmail.com"
+            class="hidden sm:inline-flex min-h-[44px] items-center gap-1.5 rounded-lg bg-[#38BDF8] px-4 py-2 font-mono text-xs font-bold text-[#090D16] hover:bg-[#7DD3FC] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] focus:ring-offset-2 focus:ring-offset-[#090D16] transition-colors"
+          >
+            <span>{t('nav', 'hire')}</span>
+            <ArrowUpRight class="h-4 w-4" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-[#64748B]/40 bg-[#0F172A]/80 py-12 text-[#CBD5E1]">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#64748B]/30">
+          <div class="flex items-center gap-3">
+            <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-[#38BDF8] text-[#090D16]">
+              <Layers class="h-5 w-5" aria-hidden="true" />
+            </span>
+            <div>
+              <span class="font-display font-bold text-sm tracking-tight text-[#F8FAFC]">THE HENRY LABS</span>
+              <p class="text-xs text-[#94A3B8]">{t('footer', 'tagline')}</p>
+            </div>
+          </div>
+
+          <!-- Social Channels -->
+          <div class="flex items-center gap-4">
+            <a
+              href="https://github.com/thehenrylabsdev"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex h-11 w-11 items-center justify-center rounded-lg border border-[#64748B]/60 bg-[#1E293B] text-[#CBD5E1] hover:text-[#38BDF8] hover:border-[#38BDF8] transition-colors focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+              aria-label="GitHub Profile"
+            >
+              <Github class="h-5 w-5" aria-hidden="true" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/thehenrylabsdev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex h-11 w-11 items-center justify-center rounded-lg border border-[#64748B]/60 bg-[#1E293B] text-[#CBD5E1] hover:text-[#38BDF8] hover:border-[#38BDF8] transition-colors focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+              aria-label="LinkedIn Profile"
+            >
+              <Linkedin class="h-5 w-5" aria-hidden="true" />
+            </a>
+            <a
+              href="https://x.com/thehenrylabs"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex h-11 w-11 items-center justify-center rounded-lg border border-[#64748B]/60 bg-[#1E293B] text-[#CBD5E1] hover:text-[#38BDF8] hover:border-[#38BDF8] transition-colors focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+              aria-label="X (Twitter) Profile"
+            >
+              <Twitter class="h-5 w-5" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-xs text-[#94A3B8]">
+          <p>© {new Date().getFullYear()} Henry Nguyen. {t('footer', 'copyright')}</p>
+          <a
+            href="https://github.com/thehenrylabsdev/thehenrylabs-website"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-[#38BDF8] transition-colors underline focus:outline-none focus:ring-2 focus:ring-[#38BDF8] rounded p-0.5"
+          >
+            {t('footer', 'openSource')}
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

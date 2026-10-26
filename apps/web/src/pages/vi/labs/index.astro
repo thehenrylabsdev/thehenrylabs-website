@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { labConfig } from '../../../data/labs';
+import { Boxes, ExternalLink, ArrowRight, Cpu } from 'lucide-astro';
+---
+
+<BaseLayout
+  title="Các Phòng Thí Nghiệm Kỹ Thuật | The Henry Labs"
+  description="Khám phá các phòng thí nghiệm web platform tương tác, bộ đo lường thực nghiệm và sandbox đồ họa đa framework được xây dựng bởi Henry Nguyen."
+>
+  <div class="py-16 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-12">
+        <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8]">Thử Nghiệm Kỹ Thuật</span>
+        <h1 class="font-display text-4xl font-extrabold text-[#F8FAFC] tracking-tight mt-2 mb-4">
+          Phòng Thí Nghiệm Tương Tác
+        </h1>
+        <p class="text-base text-[#94A3B8] leading-relaxed">
+          Bộ sưu tập các mẫu prototype kỹ thuật client-side, hệ thống benchmark thời gian thực và sandbox đồ họa trên nhiều framework (React, WebGL, WebGPU và Web Standards thuần).
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <article class="rounded-2xl border border-[#38BDF8]/40 bg-[#0F172A] p-8 flex flex-col justify-between hover:border-[#38BDF8] transition-colors relative overflow-hidden group">
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#38BDF8] via-[#C084FC] to-[#34D399]"></div>
+          
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-4">
+              <span class="rounded bg-[#38BDF8]/10 text-[#38BDF8] px-2.5 py-1 font-semibold flex items-center gap-1.5">
+                <Boxes class="h-3.5 w-3.5" aria-hidden="true" />
+                <span>Tier 2 · Static App</span>
+              </span>
+              <span class="text-[#34D399] font-medium">Trạng thái: Hoạt động</span>
+            </div>
+
+            <h2 class="font-display text-2xl font-bold text-[#F8FAFC] mb-3 group-hover:text-[#38BDF8] transition-colors">
+              <a href="/vi/labs/html-in-canvas/">
+                {labConfig.title.vi}
+              </a>
+            </h2>
+
+            <p class="text-sm text-[#94A3B8] leading-relaxed mb-6">
+              {labConfig.summary.vi}
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-8">
+              {labConfig.stack.map((tech: string) => (
+                <span class="rounded-md border border-[#64748B]/40 bg-[#1E293B]/60 px-2.5 py-0.5 text-xs font-mono text-[#CBD5E1]">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-6 border-t border-[#64748B]/30">
+            <a
+              href="/labs/html-in-canvas/app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#38BDF8] hover:underline"
+            >
+              <span>Mở Sandbox</span>
+              <ExternalLink class="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+
+            <a
+              href="/vi/labs/html-in-canvas/"
+              class="inline-flex items-center gap-1.5 text-xs font-mono text-[#F8FAFC] hover:text-[#38BDF8] transition-colors"
+            >
+              <span>Xem Nghiên Cứu</span>
+              <ArrowRight class="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+          </div>
+        </article>
+
+        <article class="rounded-2xl border border-[#64748B]/30 bg-[#0F172A]/50 p-8 flex flex-col justify-between border-dashed">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-4 text-[#94A3B8]">
+              <span class="rounded bg-[#1E293B] px-2.5 py-1 flex items-center gap-1.5">
+                <Cpu class="h-3.5 w-3.5" aria-hidden="true" />
+                <span>Tier 1 · Inline</span>
+              </span>
+              <span>Trạng thái: Sắp ra mắt</span>
+            </div>
+
+            <h2 class="font-display text-2xl font-bold text-[#94A3B8] mb-3">
+              WebGPU Mô Phỏng Vật Lý Hạt Phân Tán
+            </h2>
+
+            <p class="text-sm text-[#64748B] leading-relaxed mb-6">
+              Mô phỏng compute shader GPGPU tính toán trọng lực cho 1.000.000 thực thể mà không tạo áp lực lên CPU main-thread.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-8">
+              <span class="rounded-md border border-[#64748B]/20 bg-[#1E293B]/30 px-2.5 py-0.5 text-xs font-mono text-[#64748B]">
+                webgpu
+              </span>
+              <span class="rounded-md border border-[#64748B]/20 bg-[#1E293B]/30 px-2.5 py-0.5 text-xs font-mono text-[#64748B]">
+                wgsl
+              </span>
+              <span class="rounded-md border border-[#64748B]/20 bg-[#1E293B]/30 px-2.5 py-0.5 text-xs font-mono text-[#64748B]">
+                typescript
+              </span>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-[#64748B]/20 text-xs font-mono text-[#64748B]">
+            Tạo nhanh với lệnh: <code>pnpm new:lab webgpu-particles</code>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

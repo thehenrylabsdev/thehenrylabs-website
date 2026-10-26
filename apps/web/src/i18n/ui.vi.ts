@@ -1,0 +1,66 @@
+import type { TranslationKey } from './ui.en';
+
+export const vi: TranslationKey = {
+  nav: {
+    home: 'Trang chủ',
+    about: 'Giới thiệu',
+    work: 'Dự án',
+    labs: 'Thử nghiệm',
+    writing: 'Bài viết',
+    resume: 'Hồ sơ',
+    hire: 'Hợp tác',
+    contact: 'Liên hệ',
+    language: 'English',
+  },
+  hero: {
+    badge: 'Sẵn sàng cho vị trí Principal / Staff Engineer',
+    greeting: 'Xin chào, tôi là',
+    name: 'Henry Nguyen',
+    role: 'Principal Software Engineer',
+    specialty: 'Backend & Hệ thống phân tán · Trí tuệ nhân tạo ứng dụng',
+    summary:
+      'Thiết kế kiến trúc hệ thống phân tán chịu tải cao và xây dựng pipeline tự động hóa với AI agents. Làm việc tại Việt Nam, kiến tạo cho quy mô toàn cầu.',
+    ctaPrimary: 'Khám phá các phòng thí nghiệm',
+    ctaSecondary: 'Tải hồ sơ năng lực',
+    ctaHire: 'Liên hệ hợp tác',
+    statsYears: 'Năm kinh nghiệm',
+    statsBudget: 'Quy mô pipeline AI / tháng',
+    statsFPS: 'Mục tiêu FPS Canvas',
+  },
+  flagship: {
+    badge: 'Nghiên cứu chuyên sâu',
+    title: 'Phòng thí nghiệm HTML-in-Canvas & Bộ đo lường chuẩn',
+    description:
+      'Hệ thống thử nghiệm tương tác và đo lường thực nghiệm công nghệ vẽ trực tiếp cây DOM lên Canvas 2D, WebGL và WebGPU thông qua API drawElementImage và texElementSubImage2D của WICG.',
+    launchLive: 'Mở toàn màn hình sandbox',
+    viewCaseStudy: 'Đọc phân tích kỹ thuật',
+    specReference: 'Đặc tả kỹ thuật WICG',
+    modeNative: 'Đang chạy API trình duyệt gốc',
+    modeSimulation: 'Đang chạy chế độ mô phỏng',
+    metricDualEngine: 'Kiến trúc Dual-Engine',
+    metricA11y: 'Bảo toàn 100% cây Accessibility DOM',
+    metricZeroDrift: 'Đồng bộ ma trận Sub-Pixel',
+  },
+  sections: {
+    featuredWork: 'Hệ thống sản xuất tiêu biểu',
+    featuredLabs: 'Các bản thử nghiệm tương tác',
+    recentArticles: 'Bài viết kỹ thuật & Ghi chép kiến trúc',
+    workSummary: 'Các bài nghiên cứu chuyên sâu về xử lý batch phân tán, công cụ tối ưu context cho AI và đồ họa thời gian thực.',
+    labsSummary: 'Các ứng dụng tương tác chạy trực tiếp phía client được xây dựng với React, WebGL, WebGPU và chuẩn web thuần.',
+  },
+  footer: {
+    tagline: 'Giao điểm giữa Hệ thống phân tán và Trí tuệ nhân tạo ứng dụng.',
+    copyright: 'Bảo lưu mọi quyền.',
+    rights: 'Xây dựng với Astro, Cloudflare Workers và không lưu trữ cookie theo dõi.',
+    openSource: 'Mã nguồn trên GitHub',
+  },
+  common: {
+    readMore: 'Đọc tiếp',
+    viewProject: 'Xem dự án',
+    sourceCode: 'Mã nguồn',
+    benchmarks: 'Đo lường',
+    status: 'Trạng thái',
+    stack: 'Công nghệ sử dụng',
+    publishedOn: 'Đăng ngày',
+  },
+};

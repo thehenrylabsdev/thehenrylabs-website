@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ExternalLink, Database, Cpu, ArrowRight } from 'lucide-astro';
+---
+
+<BaseLayout
+  title="Production Case Studies & Systems | The Henry Labs"
+  description="In-depth technical case studies on distributed systems, horizontally partitioned batch architectures, and agentic AI pipelines engineered by Henry Nguyen."
+>
+  <div class="py-16 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-12">
+        <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8]">Flagship Systems</span>
+        <h1 class="font-display text-4xl font-extrabold text-[#F8FAFC] tracking-tight mt-2 mb-4">
+          Production Architecture & Case Studies
+        </h1>
+        <p class="text-base text-[#94A3B8] leading-relaxed">
+          Deep dives into real-world software systems, detailing the problem statement, distributed failure modes, chosen tradeoffs, and measured performance metrics.
+        </p>
+      </div>
+
+      <div class="space-y-8">
+        <!-- Case Study 1: apex-skills -->
+        <article class="rounded-2xl border border-[#38BDF8]/40 bg-[#0F172A] p-8 sm:p-10 hover:border-[#38BDF8] transition-colors">
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+            <span class="inline-flex items-center gap-2 rounded-md bg-[#38BDF8]/10 text-[#38BDF8] px-3 py-1 text-xs font-mono font-semibold">
+              <Cpu class="h-4 w-4" aria-hidden="true" />
+              <span>Applied AI & Context Engineering</span>
+            </span>
+            <span class="font-mono text-xs text-[#94A3B8]">October 2026</span>
+          </div>
+
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#F8FAFC] mb-4">
+            <a href="https://github.com/thehenrylabsdev/apex-skills" target="_blank" rel="noopener noreferrer" class="hover:text-[#38BDF8] inline-flex items-center gap-2">
+              <span>apex-skills: Deterministic Agent Skills Engine for Frontier Coding Models</span>
+              <ExternalLink class="h-5 w-5" aria-hidden="true" />
+            </a>
+          </h2>
+
+          <p class="text-base text-[#CBD5E1] leading-relaxed mb-6">
+            Empirical benchmarks on repository context files showed that verbose AGENTS.md instructions reduce accuracy by up to 2.0% while inflating inference costs by 23%. apex-skills solves this with token-optimal, empirically verified skills, slashing turn-0 cold start overhead by 95% (256 tokens vs 5,168 tokens) and enforcing leaf-agent guards.
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-y border-[#64748B]/30 mb-6 font-mono text-xs">
+            <div>
+              <span class="text-[#94A3B8] block">Cold Start Tax:</span>
+              <span class="text-[#34D399] font-bold text-sm">256 tokens (-95%)</span>
+            </div>
+            <div>
+              <span class="text-[#94A3B8] block">Routing Evals:</span>
+              <span class="text-[#38BDF8] font-bold text-sm">24/24 (100%)</span>
+            </div>
+            <div>
+              <span class="text-[#94A3B8] block">Runtime Deps:</span>
+              <span class="text-[#F8FAFC] font-bold text-sm">0 dependencies</span>
+            </div>
+            <div>
+              <span class="text-[#94A3B8] block">Agent Collisions:</span>
+              <span class="text-[#34D399] font-bold text-sm">0 collisions</span>
+            </div>
+          </div>
+
+          <a
+            href="https://github.com/thehenrylabsdev/apex-skills"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#38BDF8] hover:underline"
+          >
+            <span>Read full benchmark report & specification</span>
+            <ArrowRight class="h-4 w-4" aria-hidden="true" />
+          </a>
+        </article>
+
+        <!-- Case Study 2: spring-batch-cronjob -->
+        <article class="rounded-2xl border border-[#34D399]/40 bg-[#0F172A] p-8 sm:p-10 hover:border-[#34D399] transition-colors">
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+            <span class="inline-flex items-center gap-2 rounded-md bg-[#34D399]/10 text-[#34D399] px-3 py-1 text-xs font-mono font-semibold">
+              <Database class="h-4 w-4" aria-hidden="true" />
+              <span>Distributed Batch Architecture</span>
+            </span>
+            <span class="font-mono text-xs text-[#94A3B8]">September 2026</span>
+          </div>
+
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#F8FAFC] mb-4">
+            <a href="https://github.com/thehenrylabsdev/spring-batch-cronjob" target="_blank" rel="noopener noreferrer" class="hover:text-[#34D399] inline-flex items-center gap-2">
+              <span>spring-batch-cronjob: Horizontal CSV Partitioning with PostgreSQL SKIP LOCKED</span>
+              <ExternalLink class="h-5 w-5" aria-hidden="true" />
+            </a>
+          </h2>
+
+          <p class="text-base text-[#CBD5E1] leading-relaxed mb-6">
+            Solves the misconception that deploying multiple Spring Batch replicas automatically distributes file reading. Implements coordinated byte-boundary random-access indexing, clustered Quartz trigger deduplication, and PostgreSQL SKIP LOCKED lease queues to achieve crash-resilient work stealing across 1–20 identical replicas without Kafka or Redis.
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-y border-[#64748B]/30 mb-6 font-mono text-xs">
+            <div>
+              <span class="text-[#94A3B8] block">Stack:</span>
+              <span class="text-[#F8FAFC] font-bold text-sm">Java 25 / Spring 4</span>
+            </div>
+            <div>
+              <span class="text-[#94A3B8] block">Replica Scaling:</span>
+              <span class="text-[#34D399] font-bold text-sm">1–20 Dynamic Pods</span>
+            </div>
+            <div>
+              <span class="text-[#94A3B8] block">Partition Safety:</span>
+              <span class="text-[#38BDF8] font-bold text-sm">Lease + Fence Token</span>
+            </div>
+            <div>
+              <span class="text-[#94A3B8] block">Extra Middleware:</span>
+              <span class="text-[#34D399] font-bold text-sm">None (DB-native)</span>
+            </div>
+          </div>
+
+          <a
+            href="https://github.com/thehenrylabsdev/spring-batch-cronjob"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#34D399] hover:underline"
+          >
+            <span>Read architecture breakdown on GitHub</span>
+            <ArrowRight class="h-4 w-4" aria-hidden="true" />
+          </a>
+        </article>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { labConfig } from '../../data/labs';
+import {
+  Activity,
+  ArrowLeft,
+  ExternalLink,
+  Layers,
+  ShieldCheck,
+  Zap,
+} from 'lucide-astro';
+---
+
+<BaseLayout
+  title="HTML-in-Canvas Lab & Benchmark Suite | The Henry Labs"
+  description="Technical Case Study & Interactive Benchmark Suite for the WICG HTML-in-Canvas specification. Detailed investigation of drawElementImage, texElementSubImage2D, and sub-pixel DOM synchronization."
+>
+  <div class="py-12 sm:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <!-- Back Link -->
+      <a
+        href="/labs/"
+        class="inline-flex items-center gap-1.5 font-mono text-xs text-[#94A3B8] hover:text-[#38BDF8] transition-colors mb-8 focus:outline-none focus:ring-2 focus:ring-[#38BDF8] rounded p-1"
+      >
+        <ArrowLeft class="h-4 w-4" aria-hidden="true" />
+        <span>Back to Laboratories</span>
+      </a>
+
+      <!-- Header -->
+      <div class="border-b border-[#64748B]/30 pb-8 mb-10">
+        <div class="inline-flex items-center gap-2 rounded-md border border-[#38BDF8]/40 bg-[#38BDF8]/10 px-3 py-1 font-mono text-xs font-semibold text-[#38BDF8] mb-4">
+          <Layers class="h-4 w-4" aria-hidden="true" />
+          <span>Flagship Research Suite</span>
+        </div>
+
+        <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F8FAFC] tracking-tight mb-4">
+          WICG HTML-in-Canvas Lab & Benchmark Suite
+        </h1>
+
+        <p class="text-base sm:text-lg text-[#CBD5E1] leading-relaxed mb-6">
+          An empirical engineering analysis and interactive test harness for rendering live, interactive, accessible DOM subtrees directly into 2D, WebGL, and WebGPU canvas contexts.
+        </p>
+
+        <div class="flex flex-wrap gap-4 items-center">
+          <a
+            href="/labs/html-in-canvas/app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-[#38BDF8] px-5 py-2.5 font-mono text-xs sm:text-sm font-bold text-[#090D16] hover:bg-[#7DD3FC] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] transition-colors shadow-lg shadow-[#38BDF8]/20"
+          >
+            <span>Launch Fullscreen Sandbox</span>
+            <ExternalLink class="h-4 w-4" aria-hidden="true" />
+          </a>
+
+          <a
+            href={labConfig.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-[#64748B]/60 bg-[#1E293B] px-5 py-2.5 font-mono text-xs sm:text-sm font-medium text-[#F8FAFC] hover:border-[#38BDF8] hover:text-[#38BDF8] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] transition-colors"
+          >
+            <span>View Source on GitHub</span>
+            <ExternalLink class="h-4 w-4" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Sandbox Iframe Embed -->
+      <section class="mb-16">
+        <div class="rounded-xl border border-[#38BDF8]/40 bg-[#0F172A] p-2 shadow-2xl overflow-hidden">
+          <div class="flex items-center justify-between px-3 py-2 border-b border-[#64748B]/30 font-mono text-xs text-[#94A3B8] bg-[#090D16]/60 rounded-t-lg">
+            <span class="flex items-center gap-2 text-[#38BDF8]">
+              <Activity class="h-4 w-4" aria-hidden="true" />
+              <span>LIVE INTERACTIVE VIEWPORT (/labs/html-in-canvas/app/)</span>
+            </span>
+            <span class="text-[11px] text-[#34D399]">60 FPS Target</span>
+          </div>
+
+          <div class="relative w-full aspect-video bg-[#090D16]">
+            <iframe
+              src="/labs/html-in-canvas/app/"
+              title="HTML-in-Canvas Interactive Sandbox"
+              class="w-full h-full border-0"
+              loading="lazy"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <p class="text-xs text-[#94A3B8] font-mono mt-2 text-center">
+          Note: If running on a browser without the Chrome Origin Trial token or flag, the sandbox automatically activates the high-precision software simulation engine.
+        </p>
+      </section>
+
+      <!-- Technical Architecture Sections -->
+      <article class="prose prose-invert max-w-none space-y-12 text-[#CBD5E1]">
+        <div>
+          <h2 class="font-display text-2xl font-bold text-[#F8FAFC] mb-4">1. The Problem Space</h2>
+          <p class="leading-relaxed">
+            For decades, web developers have faced a fundamental boundary: the <strong>DOM</strong> provides rich semantic accessibility, internationalization, and declarative styling, while the <strong>Canvas / WebGL / WebGPU</strong> context provides high-speed, GPU-accelerated rasterization and 3D shader pipelines.
+          </p>
+          <p class="leading-relaxed">
+            Bridging them previously required either fragile manual rendering (e.g. <code>html2canvas</code> rasterization hacks) or overlaying standard DOM elements floating on top of canvases, which breaks depth testing, post-processing shaders, and texture mapping.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl font-bold text-[#F8FAFC] mb-4">2. The WICG HTML-in-Canvas Standard</h2>
+          <p class="leading-relaxed">
+            The WICG specification introduces native primitives enabling elements declared inside a <code>&lt;canvas content="drawable"&gt;</code> subtree to be referenced directly by graphics APIs:
+          </p>
+          <ul class="space-y-2 list-disc list-inside">
+            <li><strong class="text-[#38BDF8]">CanvasRenderingContext2D.drawElementImage(element, dx, dy, dw, dh)</strong>: Draws the rendered pixels of an in-DOM element directly into the 2D canvas buffer while preserving hit-testing coordinates and accessibility focus rings.</li>
+            <li><strong class="text-[#C084FC]">WebGLRenderingContext.texElementSubImage2D(...)</strong>: Transfers live rendered DOM element pixels into a GPU texture in real-time, allowing 3D models and shaders to be textured with live HTML forms, buttons, and text.</li>
+            <li><strong class="text-[#34D399]">DOMMatrix Synchronizer</strong>: Maps canvas transformations back to the element's layout geometry so screen readers (ChromeVox, VoiceOver) and pointer clicks align with sub-pixel precision.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl font-bold text-[#F8FAFC] mb-4">3. Dual-Engine Architecture</h2>
+          <p class="leading-relaxed">
+            This laboratory employs a <strong>Dual-Engine Architecture</strong>:
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose my-6">
+            <div class="rounded-xl border border-[#34D399]/40 bg-[#0F172A] p-5">
+              <h3 class="font-mono text-sm font-bold text-[#34D399] flex items-center gap-2 mb-2">
+                <ShieldCheck class="h-4 w-4" aria-hidden="true" />
+                <span>Native Engine (Chromium 155+)</span>
+              </h3>
+              <p class="text-xs text-[#94A3B8]">
+                Bypasses CPU memory round-trips. Direct GPU compositing layer texture sharing. Peak throughput of 120 FPS on modern display panels.
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-[#38BDF8]/40 bg-[#0F172A] p-5">
+              <h3 class="font-mono text-sm font-bold text-[#38BDF8] flex items-center gap-2 mb-2">
+                <Zap class="h-4 w-4" aria-hidden="true" />
+                <span>Simulation Engine (Cross-Browser)</span>
+              </h3>
+              <p class="text-xs text-[#94A3B8]">
+                Deterministic fallback pipeline that emulates drawing lifecycles and layout hit-testing on Firefox, Safari, and standard browsers.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl font-bold text-[#F8FAFC] mb-4">4. Accessibility & Security Model</h2>
+          <p class="leading-relaxed">
+            Unlike legacy rasterization, HTML-in-Canvas maintains the element's exact location in the browser's accessibility tree (AXTree). Users navigating via keyboard focus tabs or screen readers retain full semantic control.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,313 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+import {
+  Activity,
+  ArrowRight,
+  Boxes,
+  CheckCircle2,
+  Cpu,
+  ExternalLink,
+  Layers,
+  Sparkles,
+  Zap,
+} from 'lucide-astro';
+
+const t = useTranslations('vi');
+---
+
+<BaseLayout
+  title="Henry Nguyen | Principal Software Engineer · Backend & AI Ứng Dụng"
+  description="Trang kỹ thuật cá nhân của Henry Nguyen. Principal Software Engineer chuyên sâu về kiến trúc hệ thống phân tán, đồ họa Web Platform hiệu năng cao và pipeline AI tự động hóa."
+>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden border-b border-[#64748B]/30 bg-gradient-to-b from-[#0F172A]/40 to-transparent py-20 lg:py-28">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#1E293B0F_1px,transparent_1px),linear-gradient(to_bottom,#1E293B0F_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- Status Badge -->
+      <div class="inline-flex items-center gap-2 rounded-full border border-[#34D399]/40 bg-[#34D399]/10 px-3.5 py-1.5 text-xs font-mono font-medium text-[#34D399] mb-8">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34D399] opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-[#34D399]"></span>
+        </span>
+        {t('hero', 'badge')}
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Hero Text -->
+        <div class="lg:col-span-7">
+          <p class="font-mono text-sm uppercase tracking-widest text-[#38BDF8] mb-3">{t('hero', 'greeting')}</p>
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#F8FAFC] leading-[1.1] mb-6">
+            Henry Nguyen
+          </h1>
+          <h2 class="font-display text-xl sm:text-2xl font-bold text-[#CBD5E1] mb-6">
+            {t('hero', 'role')} <span class="text-[#38BDF8]">·</span> {t('hero', 'specialty')}
+          </h2>
+          <p class="text-base sm:text-lg text-[#94A3B8] leading-relaxed max-w-2xl mb-10">
+            {t('hero', 'summary')}
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-4">
+            <a
+              href="/vi/labs/html-in-canvas/"
+              class="inline-flex min-h-[48px] items-center gap-2 rounded-lg bg-[#38BDF8] px-6 py-3 font-mono text-xs sm:text-sm font-bold text-[#090D16] hover:bg-[#7DD3FC] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] transition-colors shadow-lg shadow-[#38BDF8]/20"
+            >
+              <Zap class="h-4 w-4" aria-hidden="true" />
+              <span>{t('hero', 'ctaPrimary')}</span>
+            </a>
+            <a
+              href="/vi/resume/"
+              class="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-[#64748B]/60 bg-[#0F172A] px-6 py-3 font-mono text-xs sm:text-sm font-medium text-[#F8FAFC] hover:border-[#38BDF8] hover:text-[#38BDF8] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] transition-colors"
+            >
+              <span>{t('hero', 'ctaSecondary')}</span>
+              <ArrowRight class="h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Metric Telemetry Cards -->
+        <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="rounded-xl border border-[#64748B]/40 bg-[#0F172A]/80 p-5 backdrop-blur-sm">
+            <div class="flex items-center justify-between text-[#38BDF8] mb-2">
+              <span class="font-mono text-xs uppercase tracking-wider text-[#94A3B8]">{t('hero', 'statsBudget')}</span>
+              <Cpu class="h-5 w-5" aria-hidden="true" />
+            </div>
+            <div class="font-mono text-3xl font-extrabold text-[#F8FAFC]">$66,000<span class="text-xs font-normal text-[#94A3B8]">/tháng</span></div>
+            <p class="text-xs text-[#94A3B8] mt-2">Pipeline kỹ thuật phần mềm tự động hóa với Frontier AI</p>
+          </div>
+
+          <div class="rounded-xl border border-[#64748B]/40 bg-[#0F172A]/80 p-5 backdrop-blur-sm">
+            <div class="flex items-center justify-between text-[#34D399] mb-2">
+              <span class="font-mono text-xs uppercase tracking-wider text-[#94A3B8]">{t('hero', 'statsFPS')}</span>
+              <Activity class="h-5 w-5" aria-hidden="true" />
+            </div>
+            <div class="font-mono text-3xl font-extrabold text-[#F8FAFC]">120 <span class="text-xs font-normal text-[#94A3B8]">FPS</span></div>
+            <p class="text-xs text-[#94A3B8] mt-2">Đồng bộ sub-pixel WICG HTML-in-Canvas</p>
+          </div>
+
+          <div class="sm:col-span-2 rounded-xl border border-[#C084FC]/40 bg-[#1E293B]/40 p-5 backdrop-blur-sm">
+            <div class="flex items-center justify-between text-[#C084FC] mb-2">
+              <span class="font-mono text-xs uppercase tracking-wider text-[#CBD5E1]">Triết Lý Kỹ Thuật Cốt Lõi</span>
+              <Sparkles class="h-5 w-5" aria-hidden="true" />
+            </div>
+            <p class="text-sm text-[#F8FAFC] leading-relaxed">
+              "Tuyệt đối không dựa vào tính ngẫu nhiên không có seed, không đưa kiến thức pre-training lặp lại vào context của agent, và chứng minh tính đồng thời ngay tại biên phân vùng database."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flagship Research Showcase: HTML-in-Canvas -->
+  <section class="py-16 lg:py-24 border-b border-[#64748B]/30 bg-[#090D16]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl border border-[#38BDF8]/40 bg-gradient-to-br from-[#0F172A] via-[#090D16] to-[#1E293B]/40 p-8 lg:p-12 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#38BDF8] via-[#C084FC] to-[#34D399]"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7">
+            <div class="inline-flex items-center gap-2 rounded-md border border-[#38BDF8]/40 bg-[#38BDF8]/10 px-3 py-1 font-mono text-xs font-semibold text-[#38BDF8] mb-4">
+              <Layers class="h-4 w-4" aria-hidden="true" />
+              <span>{t('flagship', 'badge')}</span>
+            </div>
+            <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F8FAFC] mb-4">
+              {t('flagship', 'title')}
+            </h2>
+            <p class="text-sm sm:text-base text-[#CBD5E1] leading-relaxed mb-6">
+              {t('flagship', 'description')}
+            </p>
+
+            <div class="flex flex-wrap gap-3 mb-8">
+              <div class="flex items-center gap-1.5 rounded-md border border-[#34D399]/40 bg-[#34D399]/10 px-2.5 py-1 text-xs font-mono text-[#34D399]">
+                <CheckCircle2 class="h-3.5 w-3.5" aria-hidden="true" />
+                <span>{t('flagship', 'metricDualEngine')}</span>
+              </div>
+              <div class="flex items-center gap-1.5 rounded-md border border-[#38BDF8]/40 bg-[#38BDF8]/10 px-2.5 py-1 text-xs font-mono text-[#38BDF8]">
+                <CheckCircle2 class="h-3.5 w-3.5" aria-hidden="true" />
+                <span>{t('flagship', 'metricA11y')}</span>
+              </div>
+              <div class="flex items-center gap-1.5 rounded-md border border-[#C084FC]/40 bg-[#C084FC]/10 px-2.5 py-1 text-xs font-mono text-[#C084FC]">
+                <CheckCircle2 class="h-3.5 w-3.5" aria-hidden="true" />
+                <span>{t('flagship', 'metricZeroDrift')}</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4">
+              <a
+                href="/labs/html-in-canvas/app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-[#38BDF8] px-5 py-2.5 font-mono text-xs sm:text-sm font-bold text-[#090D16] hover:bg-[#7DD3FC] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] transition-colors"
+              >
+                <span>{t('flagship', 'launchLive')}</span>
+                <ExternalLink class="h-4 w-4" aria-hidden="true" />
+              </a>
+              <a
+                href="/vi/labs/html-in-canvas/"
+                class="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-[#64748B]/60 bg-[#1E293B] px-5 py-2.5 font-mono text-xs sm:text-sm font-medium text-[#F8FAFC] hover:border-[#38BDF8] hover:text-[#38BDF8] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] transition-colors"
+              >
+                <span>{t('flagship', 'viewCaseStudy')}</span>
+                <ArrowRight class="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 rounded-xl border border-[#64748B]/60 bg-[#090D16] p-4 font-mono text-xs">
+            <div class="flex items-center justify-between border-b border-[#64748B]/40 pb-3 mb-4 text-[#94A3B8]">
+              <span class="flex items-center gap-2 text-[#38BDF8]">
+                <Activity class="h-4 w-4" aria-hidden="true" />
+                <span>GIÁM-SÁT-WICG-TELEMETRY</span>
+              </span>
+              <span class="rounded bg-[#34D399]/20 text-[#34D399] px-2 py-0.5 text-[10px]">60.0 FPS</span>
+            </div>
+
+            <div class="space-y-2 text-[#CBD5E1]">
+              <div class="flex justify-between">
+                <span class="text-[#94A3B8]">Phương thức API:</span>
+                <span class="text-[#38BDF8]">drawElementImage()</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#94A3B8]">Texture đích:</span>
+                <span class="text-[#C084FC]">texElementSubImage2D</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#94A3B8]">Chế độ đồng bộ DOM:</span>
+                <span class="text-[#34D399]">content="drawable"</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#94A3B8]">Cây Accessibility:</span>
+                <span class="text-[#34D399]">BẢO TOÀN (AXNode nguyên vẹn)</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#94A3B8]">Độ lệch Sub-Pixel:</span>
+                <span class="text-[#F8FAFC]">&lt; 0.001px (4x4 DOMMatrix)</span>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-[#64748B]/40 text-[11px] text-[#94A3B8]">
+              <p>Khả dụng trên Chromium 155+ với token Chrome Origin Trial tại <code class="text-[#38BDF8]">thehenrylabs.dev</code>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Production Systems (Work) -->
+  <section class="py-16 lg:py-24 border-b border-[#64748B]/30 bg-[#0F172A]/40">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8]">Mã Nguồn Mở & Kiến Trúc Nổi Bật</span>
+          <h2 class="font-display text-3xl font-extrabold text-[#F8FAFC] mt-2">{t('sections', 'featuredWork')}</h2>
+        </div>
+        <p class="text-sm text-[#94A3B8] max-w-md">{t('sections', 'workSummary')}</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Project 1: apex-skills -->
+        <article class="rounded-xl border border-[#64748B]/40 bg-[#0F172A] p-6 sm:p-8 flex flex-col justify-between hover:border-[#38BDF8] transition-colors">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-[#38BDF8] mb-3">
+              <span>TypeScript · Kiến Trúc AI Agent</span>
+              <span class="rounded bg-[#38BDF8]/10 px-2 py-0.5">v1.0.0</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-[#F8FAFC] mb-3">
+              <a href="https://github.com/thehenrylabsdev/apex-skills" target="_blank" rel="noopener noreferrer" class="hover:text-[#38BDF8] flex items-center gap-2">
+                <span>apex-skills</span>
+                <ExternalLink class="h-4 w-4" aria-hidden="true" />
+              </a>
+            </h3>
+            <p class="text-sm text-[#94A3B8] leading-relaxed mb-6">
+              Hệ thống Agent Skills và deterministic context engine tối ưu token cho các mô hình AI lập trình tiên phong. Cắt giảm token cold-start từ 5,168 token xuống còn 256 token (-95.0%).
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-4 border-t border-[#64748B]/30 text-xs font-mono text-[#CBD5E1]">
+            <span>Không Phụ Thuộc Runtime</span>
+            <span class="text-[#34D399]">100% Routing Evals Đạt Chuẩn</span>
+          </div>
+        </article>
+
+        <!-- Project 2: spring-batch-cronjob -->
+        <article class="rounded-xl border border-[#64748B]/40 bg-[#0F172A] p-6 sm:p-8 flex flex-col justify-between hover:border-[#38BDF8] transition-colors">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-[#34D399] mb-3">
+              <span>Java 25 · Spring Boot 4 · Kubernetes</span>
+              <span class="rounded bg-[#34D399]/10 px-2 py-0.5">Xử Lý Phân Tán</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-[#F8FAFC] mb-3">
+              <a href="https://github.com/thehenrylabsdev/spring-batch-cronjob" target="_blank" rel="noopener noreferrer" class="hover:text-[#34D399] flex items-center gap-2">
+                <span>spring-batch-cronjob</span>
+                <ExternalLink class="h-4 w-4" aria-hidden="true" />
+              </a>
+            </h3>
+            <p class="text-sm text-[#94A3B8] leading-relaxed mb-6">
+              Xử lý file CSV hàng tuần phân tán ngang trên 1–20 replica giống hệt nhau. Kết hợp Quartz JDBC cluster với hàng đợi PostgreSQL SKIP LOCKED để work-stealing an toàn mà không cần Kafka hay Redis.
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-4 border-t border-[#64748B]/30 text-xs font-mono text-[#CBD5E1]">
+            <span>PostgreSQL Lease Fencing</span>
+            <span class="text-[#38BDF8]">0% Trùng Lặp Phân Vùng</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Lab Gallery -->
+  <section class="py-16 lg:py-24 border-b border-[#64748B]/30 bg-[#090D16]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-[#C084FC]">Sandbox Đa Nền Tảng</span>
+          <h2 class="font-display text-3xl font-extrabold text-[#F8FAFC] mt-2">{t('sections', 'featuredLabs')}</h2>
+        </div>
+        <a href="/vi/labs/" class="inline-flex items-center gap-2 font-mono text-xs text-[#38BDF8] hover:underline">
+          <span>Xem tất cả phòng thí nghiệm</span>
+          <ArrowRight class="h-3.5 w-3.5" aria-hidden="true" />
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="rounded-xl border border-[#64748B]/40 bg-[#0F172A] p-6 hover:border-[#38BDF8] transition-colors">
+          <div class="flex items-center gap-2 text-xs font-mono text-[#38BDF8] mb-3">
+            <Boxes class="h-4 w-4" aria-hidden="true" />
+            <span>Tier 2 · Static App</span>
+          </div>
+          <h3 class="font-display text-lg font-bold text-[#F8FAFC] mb-2">Bộ Thử Nghiệm HTML-in-Canvas</h3>
+          <p class="text-xs text-[#94A3B8] mb-4">React 19 + Vite sandbox benchmark cho đặc tả WICG.</p>
+          <a href="/vi/labs/html-in-canvas/" class="text-xs font-mono text-[#38BDF8] hover:underline inline-flex items-center gap-1">
+            <span>Khám phá phòng lab</span> &rarr;
+          </a>
+        </div>
+
+        <div class="rounded-xl border border-[#64748B]/40 bg-[#0F172A] p-6 hover:border-[#C084FC] transition-colors">
+          <div class="flex items-center gap-2 text-xs font-mono text-[#C084FC] mb-3">
+            <Activity class="h-4 w-4" aria-hidden="true" />
+            <span>Sub-Lab Tương Tác</span>
+          </div>
+          <h3 class="font-display text-lg font-bold text-[#F8FAFC] mb-2">Thanh Tra Đồng Bộ Geometry</h3>
+          <p class="text-xs text-[#94A3B8] mb-4">Đồng bộ ma trận sub-pixel và thanh tra biến đổi 4x4 DOMMatrix.</p>
+          <a href="/labs/html-in-canvas/app/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#C084FC] hover:underline inline-flex items-center gap-1">
+            <span>Mở thanh tra</span> &rarr;
+          </a>
+        </div>
+
+        <div class="rounded-xl border border-[#64748B]/40 bg-[#0F172A] p-6 hover:border-[#34D399] transition-colors">
+          <div class="flex items-center gap-2 text-xs font-mono text-[#34D399] mb-3">
+            <Cpu class="h-4 w-4" aria-hidden="true" />
+            <span>Đấu Trường Benchmark</span>
+          </div>
+          <h3 class="font-display text-lg font-bold text-[#F8FAFC] mb-2">Cầu Nối Shader GPU</h3>
+          <p class="text-xs text-[#94A3B8] mb-4">Shader fragment WebGL thời gian thực điều khiển bởi texture chữ và nút DOM.</p>
+          <a href="/labs/html-in-canvas/app/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#34D399] hover:underline inline-flex items-center gap-1">
+            <span>Chạy shader lab</span> &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

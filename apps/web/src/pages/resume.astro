@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Mail, Github, Linkedin, Printer, MapPin, Globe } from 'lucide-astro';
+---
+
+<BaseLayout
+  title="Resume | Henry Nguyen — Principal Software Engineer"
+  description="Printable engineering resume and career experience of Henry Nguyen, Principal Software Engineer specializing in Backend, Distributed Systems and Applied AI."
+>
+  <div class="py-12 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <!-- Action Bar -->
+      <div class="flex items-center justify-between mb-8 pb-4 border-b border-[#64748B]/30 not-print">
+        <span class="font-mono text-xs text-[#94A3B8]">Curriculum Vitae</span>
+        <div class="flex items-center gap-3">
+          <button
+            onclick="window.print()"
+            class="inline-flex items-center gap-1.5 rounded-lg border border-[#64748B]/60 bg-[#1E293B] px-3.5 py-2 font-mono text-xs font-medium text-[#F8FAFC] hover:border-[#38BDF8] hover:text-[#38BDF8] transition-colors focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+          >
+            <Printer class="h-4 w-4" aria-hidden="true" />
+            <span>Print / Save PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Resume Printable Document Container -->
+      <div class="rounded-2xl border border-[#64748B]/40 bg-[#0F172A] p-8 sm:p-12 shadow-xl print:border-0 print:bg-white print:text-black print:p-0">
+        <!-- Resume Header -->
+        <header class="border-b border-[#64748B]/30 pb-8 mb-8 print:border-black print:pb-4 print:mb-6">
+          <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight mb-2 print:text-black">
+            Henry Nguyen
+          </h1>
+          <p class="font-mono text-base font-bold text-[#38BDF8] mb-4 print:text-gray-800">
+            Principal Software Engineer · Backend & Distributed Systems · Applied AI
+          </p>
+
+          <div class="flex flex-wrap gap-x-6 gap-y-2 text-xs font-mono text-[#CBD5E1] print:text-gray-700">
+            <span class="flex items-center gap-1.5">
+              <MapPin class="h-3.5 w-3.5 text-[#38BDF8]" aria-hidden="true" />
+              <span>Vietnam (Open to Remote Globally)</span>
+            </span>
+            <a href="mailto:thehenrylabs.dev@gmail.com" class="flex items-center gap-1.5 hover:text-[#38BDF8]">
+              <Mail class="h-3.5 w-3.5 text-[#38BDF8]" aria-hidden="true" />
+              <span>thehenrylabs.dev@gmail.com</span>
+            </a>
+            <a href="https://thehenrylabs.dev" class="flex items-center gap-1.5 hover:text-[#38BDF8]">
+              <Globe class="h-3.5 w-3.5 text-[#38BDF8]" aria-hidden="true" />
+              <span>thehenrylabs.dev</span>
+            </a>
+            <a href="https://github.com/thehenrylabsdev" class="flex items-center gap-1.5 hover:text-[#38BDF8]">
+              <Github class="h-3.5 w-3.5 text-[#38BDF8]" aria-hidden="true" />
+              <span>github.com/thehenrylabsdev</span>
+            </a>
+            <a href="https://www.linkedin.com/in/thehenrylabsdev/" class="flex items-center gap-1.5 hover:text-[#38BDF8]">
+              <Linkedin class="h-3.5 w-3.5 text-[#38BDF8]" aria-hidden="true" />
+              <span>linkedin.com/in/thehenrylabsdev</span>
+            </a>
+          </div>
+        </header>
+
+        <!-- Executive Summary -->
+        <section class="mb-8 print:mb-6">
+          <h2 class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] mb-3 print:text-black font-bold">
+            Executive Summary
+          </h2>
+          <p class="text-sm text-[#CBD5E1] leading-relaxed print:text-gray-800">
+            Principal Software Engineer with proven authority in high-throughput backend architecture, resilient distributed batch workflows, and bleeding-edge Applied AI systems. Previously managed and optimized a <strong>$66,000 USD/month autonomous coding agent pipeline</strong> across frontier models for an enterprise US client. Expert in Java 25, Spring Batch, PostgreSQL concurrency primitives, Cloudflare Workers edge architecture, and TypeScript Web Platform graphics.
+          </p>
+        </section>
+
+        <!-- Experience -->
+        <section class="mb-8 print:mb-6">
+          <h2 class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] mb-4 print:text-black font-bold">
+            Key Experience & Technical Milestones
+          </h2>
+
+          <div class="space-y-6">
+            <div class="border-l-2 border-[#38BDF8] pl-4 print:border-black">
+              <div class="flex flex-wrap items-center justify-between text-xs font-mono mb-1">
+                <span class="font-bold text-[#F8FAFC] text-sm print:text-black">Principal Software Engineer · AI & Distributed Architectures</span>
+                <span class="text-[#38BDF8] print:text-gray-600">2026 – Present</span>
+              </div>
+              <p class="text-xs text-[#94A3B8] font-mono mb-2 print:text-gray-600">Independent Research & Enterprise Technical Consulting</p>
+              <ul class="text-xs text-[#CBD5E1] space-y-1.5 list-disc list-inside print:text-gray-800">
+                <li>Architected <strong>apex-skills</strong>, a deterministic Agent Skills and context engine slashing AI cold-start token consumption by 95% with zero runtime dependencies.</li>
+                <li>Engineered the <strong>HTML-in-Canvas Lab & Benchmark Suite</strong> investigating WICG native drawing primitives for sub-pixel GPU/DOM synchronization.</li>
+                <li>Authored the <strong>spring-batch-cronjob</strong> architecture, proving distributed file partitioning without Kafka or Redis via PostgreSQL SKIP LOCKED lease queues.</li>
+              </ul>
+            </div>
+
+            <div class="border-l-2 border-[#64748B] pl-4 print:border-black">
+              <div class="flex flex-wrap items-center justify-between text-xs font-mono mb-1">
+                <span class="font-bold text-[#F8FAFC] text-sm print:text-black">Staff / Lead Software Engineer · Autonomous AI Pipeline</span>
+                <span class="text-[#94A3B8] print:text-gray-600">2024 – 2026</span>
+              </div>
+              <p class="text-xs text-[#94A3B8] font-mono mb-2 print:text-gray-600">Enterprise Software Client (USA)</p>
+              <ul class="text-xs text-[#CBD5E1] space-y-1.5 list-disc list-inside print:text-gray-800">
+                <li>Operated and tuned an end-to-end autonomous engineering pipeline with a monthly budget of $40,000 on Claude Code and $26,000 on OpenAI Codex ($66,000/mo total).</li>
+                <li>Designed automated CI/CD code verification gates, deterministic testing frameworks, and multi-agent wave dispatchers preventing overlapping file delivery race conditions.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Technical Skills Grid -->
+        <section>
+          <h2 class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] mb-4 print:text-black font-bold">
+            Technical Skills Matrix
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+            <div class="rounded-lg border border-[#64748B]/30 bg-[#1E293B]/40 p-4 print:border-gray-300 print:bg-transparent">
+              <span class="font-bold text-[#38BDF8] block mb-1 print:text-black">Backend & Concurrency</span>
+              <p class="text-[#CBD5E1] print:text-gray-800">Java 25, Spring Boot 4, Spring Batch 6, PostgreSQL, Quartz JDBC, SKIP LOCKED work stealing, Kubernetes, Docker.</p>
+            </div>
+            <div class="rounded-lg border border-[#64748B]/30 bg-[#1E293B]/40 p-4 print:border-gray-300 print:bg-transparent">
+              <span class="font-bold text-[#34D399] block mb-1 print:text-black">Applied AI & Agents</span>
+              <p class="text-[#CBD5E1] print:text-gray-800">Deterministic context engineering, Agent Skills, KV-cache warm reuse, multi-agent synchronization, LLM evaluation test suites.</p>
+            </div>
+            <div class="rounded-lg border border-[#64748B]/30 bg-[#1E293B]/40 p-4 print:border-gray-300 print:bg-transparent">
+              <span class="font-bold text-[#C084FC] block mb-1 print:text-black">Web Platform & Graphics</span>
+              <p class="text-[#CBD5E1] print:text-gray-800">WICG HTML-in-Canvas, WebGL, WebGPU, strict TypeScript, Astro 7, React 19, Tailwind CSS v4, WCAG 2.2 AA.</p>
+            </div>
+            <div class="rounded-lg border border-[#64748B]/30 bg-[#1E293B]/40 p-4 print:border-gray-300 print:bg-transparent">
+              <span class="font-bold text-[#F8FAFC] block mb-1 print:text-black">Cloud & Edge</span>
+              <p class="text-[#CBD5E1] print:text-gray-800">Cloudflare Workers, Static Assets, D1, KV, Durable Objects, GitHub Actions CI/CD, Terraform.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

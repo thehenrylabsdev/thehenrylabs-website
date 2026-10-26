@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Disallow indexing of raw embedded laboratory sandbox apps (canonical is /labs/<slug>/)
+Disallow: /labs/*/app/
+
+Sitemap: https://thehenrylabs.dev/sitemap-index.xml

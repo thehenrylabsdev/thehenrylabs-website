@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { ExternalLink, Database, Cpu, ArrowRight } from 'lucide-astro';
+---
+
+<BaseLayout
+  title="Dự Án Kiến Trúc Tiêu Biểu | The Henry Labs"
+  description="Các bài phân tích kỹ thuật chuyên sâu về hệ thống phân tán, xử lý batch ngang và pipeline AI agent do Henry Nguyen thiết kế."
+>
+  <div class="py-16 sm:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-12">
+        <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8]">Hệ Thống Sản Xuất Thực Tế</span>
+        <h1 class="font-display text-4xl font-extrabold text-[#F8FAFC] tracking-tight mt-2 mb-4">
+          Kiến Trúc Sản Xuất & Nghiên Cứu
+        </h1>
+        <p class="text-base text-[#94A3B8] leading-relaxed">
+          Phân tích chi tiết các hệ thống phần mềm thực tế, làm rõ bài toán, các kịch bản lỗi phân tán, đánh đổi kiến trúc và số liệu đo lường thực nghiệm.
+        </p>
+      </div>
+
+      <div class="space-y-8">
+        <!-- Case Study 1: apex-skills -->
+        <article class="rounded-2xl border border-[#38BDF8]/40 bg-[#0F172A] p-8 sm:p-10 hover:border-[#38BDF8] transition-colors">
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+            <span class="inline-flex items-center gap-2 rounded-md bg-[#38BDF8]/10 text-[#38BDF8] px-3 py-1 text-xs font-mono font-semibold">
+              <Cpu class="h-4 w-4" aria-hidden="true" />
+              <span>AI Ứng Dụng & Kỹ Thuật Ngữ Cảnh</span>
+            </span>
+            <span class="font-mono text-xs text-[#94A3B8]">Tháng 10, 2026</span>
+          </div>
+
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#F8FAFC] mb-4">
+            <a href="https://github.com/thehenrylabsdev/apex-skills" target="_blank" rel="noopener noreferrer" class="hover:text-[#38BDF8] inline-flex items-center gap-2">
+              <span>apex-skills: Engine Quản Lý Agent Skills Tất Định Cho Mô Hình AI Lập Trình</span>
+              <ExternalLink class="h-5 w-5" aria-hidden="true" />
+            </a>
+          </h2>
+
+          <p class="text-base text-[#CBD5E1] leading-relaxed mb-6">
+            Đo lường thực nghiệm cho thấy việc đưa quá nhiều prompt dài dòng vào AGENTS.md làm giảm độ chính xác của AI tới 2.0% và tăng chi phí token lên 23%. apex-skills giải quyết triệt để vấn đề này với các skill tối ưu token, cắt giảm chi phí cold-start tới 95% (256 token so với 5,168 token) và ngăn chặn đệ quy subagent.
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-y border-[#64748B]/30 mb-6 font-mono text-xs">
+            <div>
+              <span class="text-[#94A3B8] block">Thuế Cold Start:</span>
+              <span class="text-[#34D399] font-bold text-sm">256 token (-95%)</span>
+            </div>
+            <div>
+              <span class="text-[#94A3B8] block">Routing Evals:</span>
+              <span class="text-[#38BDF8] font-bold text-sm">24/24 (100%)</span>
+            </div>
+            <div>
+              <span class="text-[#94A3B8] block">Phụ Thuộc Runtime:</span>
+              <span class="text-[#F8FAFC] font-bold text-sm">0 dependencies</span>
+            </div>
+            <div>
+              <span class="text-[#94A3B8] block">Xung Đột Agent:</span>
+              <span class="text-[#34D399] font-bold text-sm">0 xung đột</span>
+            </div>
+          </div>
+
+          <a
+            href="https://github.com/thehenrylabsdev/apex-skills"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#38BDF8] hover:underline"
+          >
+            <span>Đọc báo cáo đo lường & đặc tả trên GitHub</span>
+            <ArrowRight class="h-4 w-4" aria-hidden="true" />
+          </a>
+        </article>
+
+        <!-- Case Study 2: spring-batch-cronjob -->
+        <article class="rounded-2xl border border-[#34D399]/40 bg-[#0F172A] p-8 sm:p-10 hover:border-[#34D399] transition-colors">
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+            <span class="inline-flex items-center gap-2 rounded-md bg-[#34D399]/10 text-[#34D399] px-3 py-1 text-xs font-mono font-semibold">
+              <Database class="h-4 w-4" aria-hidden="true" />
+              <span>Kiến Trúc Batch Phân Tán</span>
+            </span>
+            <span class="font-mono text-xs text-[#94A3B8]">Tháng 9, 2026</span>
+          </div>
+
+          <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#F8FAFC] mb-4">
+            <a href="https://github.com/thehenrylabsdev/spring-batch-cronjob" target="_blank" rel="noopener noreferrer" class="hover:text-[#34D399] inline-flex items-center gap-2">
+              <span>spring-batch-cronjob: Phân Vùng CSV Ngang Với PostgreSQL SKIP LOCKED</span>
+              <ExternalLink class="h-5 w-5" aria-hidden="true" />
+            </a>
+          </h2>
+
+          <p class="text-base text-[#CBD5E1] leading-relaxed mb-6">
+            Giải quyết ngộ nhận phổ biến rằng chỉ cần bật nhiều replica Spring Batch là file tự động được phân tán đọc. Hệ thống triển khai lập chỉ mục byte-range an toàn, điều phối cụm Quartz và hàng đợi lease PostgreSQL SKIP LOCKED để work-stealing tin cậy trên 1–20 replica mà không cần Kafka hay Redis.
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-y border-[#64748B]/30 mb-6 font-mono text-xs">
+            <div>
+              <span class="text-[#94A3B8] block">Tech Stack:</span>
+              <span class="text-[#F8FAFC] font-bold text-sm">Java 25 / Spring 4</span>
+            </div>
+            <div>
+              <span class="text-[#94A3B8] block">Quy Mô Replica:</span>
+              <span class="text-[#34D399] font-bold text-sm">1–20 Pods Động</span>
+            </div>
+            <div>
+              <span class="text-[#94A3B8] block">Bảo Vệ Phân Vùng:</span>
+              <span class="text-[#38BDF8] font-bold text-sm">Lease + Fence Token</span>
+            </div>
+            <div>
+              <span class="text-[#94A3B8] block">Hạ Tầng Bổ Sung:</span>
+              <span class="text-[#34D399] font-bold text-sm">Không (DB-native)</span>
+            </div>
+          </div>
+
+          <a
+            href="https://github.com/thehenrylabsdev/spring-batch-cronjob"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#34D399] hover:underline"
+          >
+            <span>Xem chi tiết kiến trúc trên GitHub</span>
+            <ArrowRight class="h-4 w-4" aria-hidden="true" />
+          </a>
+        </article>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

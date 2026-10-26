@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { labConfig } from '../../../data/labs';
+import {
+  Activity,
+  ArrowLeft,
+  ExternalLink,
+  Layers,
+  ShieldCheck,
+  Zap,
+} from 'lucide-astro';
+---
+
+<BaseLayout
+  title="Phòng Thí Nghiệm HTML-in-Canvas & Bộ Đo Lường | The Henry Labs"
+  description="Phân tích kỹ thuật chuyên sâu & Hệ thống benchmark thực nghiệm cho đặc tả WICG HTML-in-Canvas. Chi tiết về drawElementImage, texElementSubImage2D và đồng bộ DOM sub-pixel."
+>
+  <div class="py-12 sm:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <a
+        href="/vi/labs/"
+        class="inline-flex items-center gap-1.5 font-mono text-xs text-[#94A3B8] hover:text-[#38BDF8] transition-colors mb-8 focus:outline-none focus:ring-2 focus:ring-[#38BDF8] rounded p-1"
+      >
+        <ArrowLeft class="h-4 w-4" aria-hidden="true" />
+        <span>Quay lại danh sách thử nghiệm</span>
+      </a>
+
+      <div class="border-b border-[#64748B]/30 pb-8 mb-10">
+        <div class="inline-flex items-center gap-2 rounded-md border border-[#38BDF8]/40 bg-[#38BDF8]/10 px-3 py-1 font-mono text-xs font-semibold text-[#38BDF8] mb-4">
+          <Layers class="h-4 w-4" aria-hidden="true" />
+          <span>Nghiên Cứu Chuyên Sâu Flagship</span>
+        </div>
+
+        <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F8FAFC] tracking-tight mb-4">
+          Phòng Thí Nghiệm HTML-in-Canvas & Bộ Đo Lường
+        </h1>
+
+        <p class="text-base sm:text-lg text-[#CBD5E1] leading-relaxed mb-6">
+          Phân tích kỹ thuật thực nghiệm và hệ thống kiểm thử tương tác để vẽ trực tiếp cây DOM động, có khả năng tương tác và bảo toàn accessibility lên các context Canvas 2D, WebGL và WebGPU.
+        </p>
+
+        <div class="flex flex-wrap gap-4 items-center">
+          <a
+            href="/labs/html-in-canvas/app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-[#38BDF8] px-5 py-2.5 font-mono text-xs sm:text-sm font-bold text-[#090D16] hover:bg-[#7DD3FC] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] transition-colors shadow-lg shadow-[#38BDF8]/20"
+          >
+            <span>Mở Toàn Màn Hình Sandbox</span>
+            <ExternalLink class="h-4 w-4" aria-hidden="true" />
+          </a>
+
+          <a
+            href={labConfig.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-[#64748B]/60 bg-[#1E293B] px-5 py-2.5 font-mono text-xs sm:text-sm font-medium text-[#F8FAFC] hover:border-[#38BDF8] hover:text-[#38BDF8] focus:outline-none focus:ring-2 focus:ring-[#38BDF8] transition-colors"
+          >
+            <span>Xem Mã Nguồn GitHub</span>
+            <ExternalLink class="h-4 w-4" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+
+      <section class="mb-16">
+        <div class="rounded-xl border border-[#38BDF8]/40 bg-[#0F172A] p-2 shadow-2xl overflow-hidden">
+          <div class="flex items-center justify-between px-3 py-2 border-b border-[#64748B]/30 font-mono text-xs text-[#94A3B8] bg-[#090D16]/60 rounded-t-lg">
+            <span class="flex items-center gap-2 text-[#38BDF8]">
+              <Activity class="h-4 w-4" aria-hidden="true" />
+              <span>KHUNG NHÌN TƯƠNG TÁC THỜI GIAN THỰC (/labs/html-in-canvas/app/)</span>
+            </span>
+            <span class="text-[11px] text-[#34D399]">Mục tiêu 60 FPS</span>
+          </div>
+
+          <div class="relative w-full aspect-video bg-[#090D16]">
+            <iframe
+              src="/labs/html-in-canvas/app/"
+              title="Khung nhìn HTML-in-Canvas Sandbox"
+              class="w-full h-full border-0"
+              loading="lazy"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <p class="text-xs text-[#94A3B8] font-mono mt-2 text-center">
+          Lưu ý: Nếu trình duyệt chưa bật cờ flag hoặc chưa có token Chrome Origin Trial, sandbox sẽ tự động kích hoạt engine mô phỏng phần mềm độ chính xác cao.
+        </p>
+      </section>
+
+      <article class="prose prose-invert max-w-none space-y-12 text-[#CBD5E1]">
+        <div>
+          <h2 class="font-display text-2xl font-bold text-[#F8FAFC] mb-4">1. Vấn Đề Thực Tế</h2>
+          <p class="leading-relaxed">
+            Trong nhiều năm, lập trình viên web luôn gặp rào cản lớn: <strong>DOM</strong> cung cấp ngữ nghĩa accessibility (hỗ trợ người khiếm thị), bản địa hóa và CSS linh hoạt; trong khi <strong>Canvas / WebGL / WebGPU</strong> cung cấp khả năng tăng tốc phần cứng GPU để vẽ đồ họa và chạy shader 3D.
+          </p>
+          <p class="leading-relaxed">
+            Việc kết hợp chúng trước đây thường cần hack chụp màn hình (như <code>html2canvas</code>) hoặc phủ phần tử HTML nổi bên trên canvas, làm hỏng depth testing và không thể áp dụng shader post-processing.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl font-bold text-[#F8FAFC] mb-4">2. Tiêu Chuẩn WICG HTML-in-Canvas</h2>
+          <p class="leading-relaxed">
+            Đặc tả WICG giới thiệu các hàm primitive gốc để vẽ các phần tử bên trong cây con <code>&lt;canvas content="drawable"&gt;</code>:
+          </p>
+          <ul class="space-y-2 list-disc list-inside">
+            <li><strong class="text-[#38BDF8]">CanvasRenderingContext2D.drawElementImage(element, dx, dy, dw, dh)</strong>: Vẽ trực tiếp pixel của phần tử DOM lên bộ đệm 2D mà vẫn giữ nguyên tọa độ click chuột và vòng focus bàn phím.</li>
+            <li><strong class="text-[#C084FC]">WebGLRenderingContext.texElementSubImage2D(...)</strong>: Truyền trực tiếp pixel DOM vào GPU texture trong thời gian thực, cho phép dán giao diện HTML lên các mô hình 3D.</li>
+            <li><strong class="text-[#34D399]">Bộ Đồng Bộ DOMMatrix</strong>: Ánh xạ biến đổi ma trận ngược lại hình học layout để các công cụ đọc màn hình và thao tác chuột ăn khớp với độ lệch dưới 0.001 pixel.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl font-bold text-[#F8FAFC] mb-4">3. Kiến Trúc Dual-Engine</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose my-6">
+            <div class="rounded-xl border border-[#34D399]/40 bg-[#0F172A] p-5">
+              <h3 class="font-mono text-sm font-bold text-[#34D399] flex items-center gap-2 mb-2">
+                <ShieldCheck class="h-4 w-4" aria-hidden="true" />
+                <span>Engine Gốc (Chromium 155+)</span>
+              </h3>
+              <p class="text-xs text-[#94A3B8]">
+                Bỏ qua hoàn toàn việc sao chép qua bộ nhớ CPU. Chia sẻ trực tiếp texture tầng compositing GPU. Đạt tốc độ lên tới 120 FPS.
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-[#38BDF8]/40 bg-[#0F172A] p-5">
+              <h3 class="font-mono text-sm font-bold text-[#38BDF8] flex items-center gap-2 mb-2">
+                <Zap class="h-4 w-4" aria-hidden="true" />
+                <span>Engine Mô Phỏng (Mọi trình duyệt)</span>
+              </h3>
+              <p class="text-xs text-[#94A3B8]">
+                Pipeline dự phòng toán học giúp mô phỏng vòng đời render và hit-test trên Safari, Firefox và các trình duyệt thông thường.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</BaseLayout>

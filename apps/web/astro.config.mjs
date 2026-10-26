@@ -6,16 +6,18 @@ import mdx from '@astrojs/mdx';
 import tailwindcss from '@tailwindcss/vite';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-// Custom integration to assemble static lab builds into dist/labs/<slug>/app/
+// Custom integration to assemble static lab builds into dist/client/labs/<slug>/app/
 function labsIntegration() {
   return {
     name: 'thehenrylabs-labs-assembler',
     hooks: {
       'astro:build:done': async ({ dir }) => {
-        const rootDir = path.resolve(dir.pathname, '../../');
-        const labsDir = path.resolve(rootDir, 'labs');
+        const labsDir = fileURLToPath(new URL('../../labs', import.meta.url));
         if (!fs.existsSync(labsDir)) return;
+
+        const resolvedDir = dir instanceof URL ? dir.pathname : String(dir);
 
         const labs = fs.readdirSync(labsDir, { withFileTypes: true })
           .filter(d => d.isDirectory())
@@ -24,10 +26,10 @@ function labsIntegration() {
         for (const slug of labs) {
           const labDist = path.resolve(labsDir, slug, 'dist');
           if (fs.existsSync(labDist)) {
-            const targetDir = path.resolve(dir.pathname, 'labs', slug, 'app');
+            const targetDir = path.resolve(resolvedDir, 'labs', slug, 'app');
             fs.mkdirSync(targetDir, { recursive: true });
             fs.cpSync(labDist, targetDir, { recursive: true });
-            console.log(`[labs-assembler] Copied lab ${slug} to dist/labs/${slug}/app`);
+            console.log(`[labs-assembler] Copied lab ${slug} to ${targetDir}`);
           }
         }
       },

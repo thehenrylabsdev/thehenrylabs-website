@@ -1,0 +1,118 @@
+---
+import type { SupportedLanguage } from '../../i18n/utils';
+
+export interface Props {
+  title: string;
+  description: string;
+  lang?: SupportedLanguage | undefined;
+  canonicalUrl?: string | undefined;
+  image?: string | undefined;
+  type?: 'website' | 'article' | 'profile' | undefined;
+  publishedTime?: string | undefined;
+}
+
+const {
+  title,
+  description,
+  lang = 'en',
+  canonicalUrl,
+  image = 'https://thehenrylabs.dev/brand/og-default.png',
+  type = 'website',
+  publishedTime,
+} = Astro.props;
+
+const siteUrl = 'https://thehenrylabs.dev';
+const currentPath = Astro.url.pathname;
+const resolvedCanonical = canonicalUrl ?? new URL(currentPath, siteUrl).toString();
+
+const enPath = currentPath.startsWith('/vi')
+  ? currentPath.replace(/^\/vi/, '') || '/'
+  : currentPath;
+const viPath = currentPath.startsWith('/vi')
+  ? currentPath
+  : `/vi${currentPath === '/' ? '/' : currentPath}`;
+
+const enUrl = new URL(enPath, siteUrl).toString();
+const viUrl = new URL(viPath, siteUrl).toString();
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: siteUrl,
+      name: 'The Henry Labs',
+      description: 'Personal Engineering Portfolio & Interactive Web Platform Laboratories by Henry Nguyen',
+      publisher: {
+        '@id': `${siteUrl}/#person`,
+      },
+      inLanguage: ['en-US', 'vi-VN'],
+    },
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#person`,
+      name: 'Henry Nguyen',
+      alternateName: 'TheHenryLabs',
+      jobTitle: 'Principal Software Engineer',
+      description: 'Principal Software Engineer specializing in Backend, Distributed Systems and Applied AI Engineering.',
+      email: 'thehenrylabs.dev@gmail.com',
+      url: siteUrl,
+      sameAs: [
+        'https://github.com/thehenrylabsdev',
+        'https://www.linkedin.com/in/thehenrylabsdev/',
+        'https://x.com/thehenrylabs',
+      ],
+      knowsAbout: [
+        'Distributed Systems',
+        'Spring Batch',
+        'Kubernetes',
+        'PostgreSQL',
+        'Applied AI Engineering',
+        'WICG HTML-in-Canvas',
+        'TypeScript',
+        'WebGPU',
+      ],
+    },
+  ],
+};
+---
+
+<!-- Core Technical SEO -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={resolvedCanonical} />
+
+<!-- Multilingual SEO & Alternates -->
+<link rel="alternate" hreflang="en" href={enUrl} />
+<link rel="alternate" hreflang="vi" href={viUrl} />
+<link rel="alternate" hreflang="x-default" href={enUrl} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content="The Henry Labs" />
+<meta property="og:url" content={resolvedCanonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:locale" content={lang === 'vi' ? 'vi_VN' : 'en_US'} />
+<meta property="og:locale:alternate" content={lang === 'vi' ? 'en_US' : 'vi_VN'} />
+{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@thehenrylabs" />
+<meta name="twitter:creator" content="@thehenrylabs" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+
+<!-- Favicon & Touch Assets -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#090D16" />
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

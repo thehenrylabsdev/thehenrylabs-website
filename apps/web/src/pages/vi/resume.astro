@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Mail, Github, Linkedin, Printer, MapPin, Globe } from 'lucide-astro';
+---
+
+<BaseLayout
+  title="Hồ Sơ Năng Lực (Resume) | Henry Nguyen — Principal Software Engineer"
+  description="Hồ sơ năng lực chuyên môn và quá trình sự nghiệp của Henry Nguyen, Principal Software Engineer chuyên sâu về Backend, Hệ thống phân tán và AI Ứng Dụng."
+>
+  <div class="py-12 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8 pb-4 border-b border-[#64748B]/30 not-print">
+        <span class="font-mono text-xs text-[#94A3B8]">Curriculum Vitae</span>
+        <div class="flex items-center gap-3">
+          <button
+            onclick="window.print()"
+            class="inline-flex items-center gap-1.5 rounded-lg border border-[#64748B]/60 bg-[#1E293B] px-3.5 py-2 font-mono text-xs font-medium text-[#F8FAFC] hover:border-[#38BDF8] hover:text-[#38BDF8] transition-colors focus:outline-none focus:ring-2 focus:ring-[#38BDF8]"
+          >
+            <Printer class="h-4 w-4" aria-hidden="true" />
+            <span>In / Lưu PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-[#64748B]/40 bg-[#0F172A] p-8 sm:p-12 shadow-xl print:border-0 print:bg-white print:text-black print:p-0">
+        <header class="border-b border-[#64748B]/30 pb-8 mb-8 print:border-black print:pb-4 print:mb-6">
+          <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight mb-2 print:text-black">
+            Henry Nguyen
+          </h1>
+          <p class="font-mono text-base font-bold text-[#38BDF8] mb-4 print:text-gray-800">
+            Principal Software Engineer · Backend & Hệ Thống Phân Tán · AI Ứng Dụng
+          </p>
+
+          <div class="flex flex-wrap gap-x-6 gap-y-2 text-xs font-mono text-[#CBD5E1] print:text-gray-700">
+            <span class="flex items-center gap-1.5">
+              <MapPin class="h-3.5 w-3.5 text-[#38BDF8]" aria-hidden="true" />
+              <span>Việt Nam (Làm việc Remote toàn cầu)</span>
+            </span>
+            <a href="mailto:thehenrylabs.dev@gmail.com" class="flex items-center gap-1.5 hover:text-[#38BDF8]">
+              <Mail class="h-3.5 w-3.5 text-[#38BDF8]" aria-hidden="true" />
+              <span>thehenrylabs.dev@gmail.com</span>
+            </a>
+            <a href="https://thehenrylabs.dev" class="flex items-center gap-1.5 hover:text-[#38BDF8]">
+              <Globe class="h-3.5 w-3.5 text-[#38BDF8]" aria-hidden="true" />
+              <span>thehenrylabs.dev</span>
+            </a>
+            <a href="https://github.com/thehenrylabsdev" class="flex items-center gap-1.5 hover:text-[#38BDF8]">
+              <Github class="h-3.5 w-3.5 text-[#38BDF8]" aria-hidden="true" />
+              <span>github.com/thehenrylabsdev</span>
+            </a>
+            <a href="https://www.linkedin.com/in/thehenrylabsdev/" class="flex items-center gap-1.5 hover:text-[#38BDF8]">
+              <Linkedin class="h-3.5 w-3.5 text-[#38BDF8]" aria-hidden="true" />
+              <span>linkedin.com/in/thehenrylabsdev</span>
+            </a>
+          </div>
+        </header>
+
+        <section class="mb-8 print:mb-6">
+          <h2 class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] mb-3 print:text-black font-bold">
+            Tóm Tắt Năng Lực
+          </h2>
+          <p class="text-sm text-[#CBD5E1] leading-relaxed print:text-gray-800">
+            Principal Software Engineer với kinh nghiệm thực chiến trong việc xây dựng kiến trúc backend thông lượng cao, luồng xử lý batch phân tán chịu lỗi và các hệ thống AI ứng dụng tiên phong. Từng quản lý và tối ưu hóa <strong>pipeline AI agent tự động hóa với ngân sách $66,000 USD/tháng</strong> cho khách hàng doanh nghiệp tại Mỹ. Chuyên sâu về Java 25, Spring Batch, tính đồng thời trong PostgreSQL, kiến trúc edge Cloudflare Workers và đồ họa Web Platform với TypeScript.
+          </p>
+        </section>
+
+        <section class="mb-8 print:mb-6">
+          <h2 class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] mb-4 print:text-black font-bold">
+            Dấu Mốc Kỹ Thuật Tiêu Biểu
+          </h2>
+
+          <div class="space-y-6">
+            <div class="border-l-2 border-[#38BDF8] pl-4 print:border-black">
+              <div class="flex flex-wrap items-center justify-between text-xs font-mono mb-1">
+                <span class="font-bold text-[#F8FAFC] text-sm print:text-black">Principal Software Engineer · AI & Kiến Trúc Phân Tán</span>
+                <span class="text-[#38BDF8] print:text-gray-600">2026 – Hiện tại</span>
+              </div>
+              <p class="text-xs text-[#94A3B8] font-mono mb-2 print:text-gray-600">Nghiên Cứu Độc Lập & Tư Vấn Kỹ Thuật Doanh Nghiệp</p>
+              <ul class="text-xs text-[#CBD5E1] space-y-1.5 list-disc list-inside print:text-gray-800">
+                <li>Thiết kế <strong>apex-skills</strong>, engine quản lý Agent Skills và ngữ cảnh tất định giúp giảm 95% chi phí token cold-start mà không cần thêm runtime dependency.</li>
+                <li>Xây dựng <strong>HTML-in-Canvas Lab & Benchmark Suite</strong> nghiên cứu các hàm vẽ gốc của WICG để đồng bộ sub-pixel GPU và cây DOM.</li>
+                <li>Tác giả kiến trúc <strong>spring-batch-cronjob</strong>, chứng minh khả năng phân vùng file phân tán không cần Kafka hay Redis thông qua hàng đợi lease PostgreSQL SKIP LOCKED.</li>
+              </ul>
+            </div>
+
+            <div class="border-l-2 border-[#64748B] pl-4 print:border-black">
+              <div class="flex flex-wrap items-center justify-between text-xs font-mono mb-1">
+                <span class="font-bold text-[#F8FAFC] text-sm print:text-black">Staff / Lead Software Engineer · Pipeline AI Tự Động Hóa</span>
+                <span class="text-[#94A3B8] print:text-gray-600">2024 – 2026</span>
+              </div>
+              <p class="text-xs text-[#94A3B8] font-mono mb-2 print:text-gray-600">Khách Hàng Doanh Nghiệp Phần Mềm (Hoa Kỳ)</p>
+              <ul class="text-xs text-[#CBD5E1] space-y-1.5 list-disc list-inside print:text-gray-800">
+                <li>Vận hành và tinh chỉnh pipeline kỹ thuật tự động hóa đầu cuối với ngân sách hàng tháng $40,000 trên Claude Code và $26,000 trên OpenAI Codex ($66,000/tháng tổng cộng).</li>
+                <li>Thiết kế các cổng kiểm duyệt mã nguồn CI/CD tự động, framework kiểm thử tất định và bộ điều phối đa agent chống xung đột delivery file.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-mono text-xs uppercase tracking-widest text-[#38BDF8] mb-4 print:text-black font-bold">
+            Ma Trận Kỹ Năng
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+            <div class="rounded-lg border border-[#64748B]/30 bg-[#1E293B]/40 p-4 print:border-gray-300 print:bg-transparent">
+              <span class="font-bold text-[#38BDF8] block mb-1 print:text-black">Backend & Xử Lý Đồng Thời</span>
+              <p class="text-[#CBD5E1] print:text-gray-800">Java 25, Spring Boot 4, Spring Batch 6, PostgreSQL, Quartz JDBC, SKIP LOCKED work stealing, Kubernetes, Docker.</p>
+            </div>
+            <div class="rounded-lg border border-[#64748B]/30 bg-[#1E293B]/40 p-4 print:border-gray-300 print:bg-transparent">
+              <span class="font-bold text-[#34D399] block mb-1 print:text-black">AI Ứng Dụng & Agents</span>
+              <p class="text-[#CBD5E1] print:text-gray-800">Kỹ thuật ngữ cảnh tất định, Agent Skills, tái sử dụng warm KV-cache, đồng bộ đa agent, bộ đánh giá benchmark LLM.</p>
+            </div>
+            <div class="rounded-lg border border-[#64748B]/30 bg-[#1E293B]/40 p-4 print:border-gray-300 print:bg-transparent">
+              <span class="font-bold text-[#C084FC] block mb-1 print:text-black">Web Platform & Đồ Họa</span>
+              <p class="text-[#CBD5E1] print:text-gray-800">WICG HTML-in-Canvas, WebGL, WebGPU, strict TypeScript, Astro 7, React 19, Tailwind CSS v4, WCAG 2.2 AA.</p>
+            </div>
+            <div class="rounded-lg border border-[#64748B]/30 bg-[#1E293B]/40 p-4 print:border-gray-300 print:bg-transparent">
+              <span class="font-bold text-[#F8FAFC] block mb-1 print:text-black">Hạ Tầng Cloud & Edge</span>
+              <p class="text-[#CBD5E1] print:text-gray-800">Cloudflare Workers, Static Assets, D1, KV, Durable Objects, GitHub Actions CI/CD, Terraform.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

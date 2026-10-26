@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Mail, Cpu, Database, CheckCircle2 } from 'lucide-astro';
+---
+
+<BaseLayout
+  title="Giới Thiệu Về Henry Nguyen | Principal Software Engineer"
+  description="Tiểu sử, quá trình sự nghiệp và các nguyên lý kỹ thuật của Henry Nguyen, Principal Software Engineer tại Việt Nam chuyên sâu về Hệ thống phân tán và AI Ứng Dụng."
+>
+  <div class="py-16 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="border-b border-[#64748B]/30 pb-10 mb-12">
+        <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8]">Hồ Sơ Năng Lực</span>
+        <h1 class="font-display text-4xl sm:text-5xl font-extrabold text-[#F8FAFC] tracking-tight mt-2 mb-4">
+          Henry Nguyen
+        </h1>
+        <p class="font-display text-xl text-[#38BDF8] font-semibold mb-6">
+          Principal Software Engineer · Backend, Hệ Thống Phân Tán & AI Ứng Dụng
+        </p>
+        <p class="text-base sm:text-lg text-[#CBD5E1] leading-relaxed">
+          Tôi là Principal Software Engineer (vai trò tôi chính thức đảm nhiệm từ đầu năm 2026) làm việc tại Việt Nam. Tôi có niềm đam mê sâu sắc với công nghệ, kiến trúc chịu tải quy mô lớn và ứng dụng trí tuệ nhân tạo vào kỹ thuật phần mềm.
+        </p>
+      </div>
+
+      <section class="space-y-12 text-[#CBD5E1] text-base leading-relaxed">
+        <div>
+          <h2 class="font-display text-2xl font-bold text-[#F8FAFC] mb-4 flex items-center gap-2">
+            <Cpu class="h-6 w-6 text-[#38BDF8]" aria-hidden="true" />
+            <span>Kinh Nghiệm Vận Hành Pipeline AI Quy Mô Lớn</span>
+          </h2>
+          <p class="mb-4">
+            Tôi từng quản lý ngân sách vận hành <strong>$40,000 USD/tháng trên Claude Code</strong> và <strong>$26,000 USD/tháng trên Codex</strong>—tổng cộng <strong>$66,000 USD/tháng</strong>—để thiết lập một pipeline tự động hóa hoàn toàn quy trình phát triển, kiểm thử và vận hành phần mềm cho một tổ chức doanh nghiệp tại Hoa Kỳ.
+          </p>
+          <p>
+            Trải nghiệm này mang lại những hiểu biết thực nghiệm sâu sắc về hiệu quả context window, tái sử dụng warm KV-cache và điều phối đa agent không xung đột tài nguyên.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl font-bold text-[#F8FAFC] mb-4 flex items-center gap-2">
+            <Database class="h-6 w-6 text-[#34D399]" aria-hidden="true" />
+            <span>Năng Lực Kỹ Thuật Nòng Cốt</span>
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose">
+            <div class="rounded-xl border border-[#64748B]/40 bg-[#0F172A] p-5">
+              <h3 class="font-mono text-sm font-bold text-[#38BDF8] mb-2">Hệ Thống Phân Tán & Backend</h3>
+              <p class="text-xs text-[#94A3B8]">
+                Spring Boot, Java 25, Spring Batch, cụm Quartz JDBC, hàng đợi PostgreSQL SKIP LOCKED, Kubernetes, lease fencing phân vùng và giao dịch phân tán.
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-[#64748B]/40 bg-[#0F172A] p-5">
+              <h3 class="font-mono text-sm font-bold text-[#C084FC] mb-2">AI Ứng Dụng & Hệ Thống Agent</h3>
+              <p class="text-xs text-[#94A3B8]">
+                Kiến trúc Agent Skills tất định, nén ngữ cảnh tối ưu token, điều phối đa agent theo sóng rời rạc, pipeline CI/CD tự động kiểm duyệt mã nguồn.
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-[#64748B]/40 bg-[#0F172A] p-5">
+              <h3 class="font-mono text-sm font-bold text-[#34D399] mb-2">Web Platform & Đồ Họa</h3>
+              <p class="text-xs text-[#94A3B8]">
+                WICG HTML-in-Canvas, WebGL, WebGPU, TypeScript strict, Astro, bộ đồng bộ DOMMatrix sub-pixel, tiêu chuẩn tiếp cận người khiếm thị WCAG 2.2 AA.
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-[#64748B]/40 bg-[#0F172A] p-5">
+              <h3 class="font-mono text-sm font-bold text-[#F8FAFC] mb-2">Hạ Tầng Cloud & Edge</h3>
+              <p class="text-xs text-[#94A3B8]">
+                Cloudflare Workers, Static Assets, D1, KV, Durable Objects, Docker, lập lịch container trên Kubernetes, triển khai zero-downtime Blue/Green.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-[#34D399]/40 bg-[#34D399]/10 p-8 not-prose">
+          <div class="flex items-center gap-2 text-sm font-mono font-bold text-[#34D399] mb-2">
+            <CheckCircle2 class="h-5 w-5" aria-hidden="true" />
+            <span>Sẵn Sàng Hợp Tác & Cơ Hội Việc Làm Mới</span>
+          </div>
+          <p class="text-sm text-[#CBD5E1] mb-6 leading-relaxed">
+            Tôi hiện đang mở rộng cơ hội cho các vị trí Principal / Staff Software Engineer và cố vấn kiến trúc kỹ thuật. Nếu bạn có bài toán kỹ thuật thú vị hoặc muốn hợp tác, hãy liên hệ ngay!
+          </p>
+          <a
+            href="mailto:thehenrylabs.dev@gmail.com"
+            class="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-[#34D399] px-6 py-3 font-mono text-xs font-bold text-[#090D16] hover:bg-[#6EE7B7] transition-colors"
+          >
+            <Mail class="h-4 w-4" aria-hidden="true" />
+            <span>Gửi email tới thehenrylabs.dev@gmail.com</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

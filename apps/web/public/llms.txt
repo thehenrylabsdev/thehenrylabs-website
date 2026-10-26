@@ -1,0 +1,20 @@
+# Henry Nguyen (The Henry Labs)
+
+> Principal Software Engineer · Backend & Distributed Systems · Applied AI
+> Location: Vietnam
+> Portfolio: https://thehenrylabs.dev
+> Contact: thehenrylabs.dev@gmail.com
+> GitHub: https://github.com/thehenrylabsdev
+> LinkedIn: https://www.linkedin.com/in/thehenrylabsdev/
+> X: https://x.com/thehenrylabs
+
+## Professional Summary
+Henry Nguyen is a Principal Software Engineer specializing in high-throughput distributed systems, event-driven architectures, and production-grade Applied AI engineering. Previously scaled fully autonomous AI coding and testing pipelines under substantial operational budgets ($66,000/month across frontier AI models). Currently open to new global engineering opportunities, technical consulting, and bespoke AI applications.
+
+## Key Projects & Research
+- **HTML-in-Canvas Lab & Benchmark Suite**: Empirical performance benchmarking and interactive exploration of the WICG HTML-in-Canvas standard (`content="drawable"`, `drawElementImage`, `texElementSubImage2D`, `drawElementImageToTexture`). (URL: https://thehenrylabs.dev/labs/html-in-canvas/)
+- **apex-skills**: Token-optimal, empirically verified Agent Skills and deterministic context engine for frontier AI coding agents, slashing cold-start token consumption by 95%. (Repo: https://github.com/thehenrylabsdev/apex-skills)
+- **spring-batch-cronjob**: Distributed horizontal CSV partitioning and processing with Spring Batch 6, Java 25, Quartz clustering, PostgreSQL SKIP LOCKED queues, and Kubernetes. (Repo: https://github.com/thehenrylabsdev/spring-batch-cronjob)
+
+## Availability
+Open for Principal / Staff Software Engineer roles (Backend, Distributed Systems, AI Infrastructure) and enterprise advisory.

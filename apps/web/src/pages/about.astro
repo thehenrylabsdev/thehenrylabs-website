@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Mail, Cpu, Database, CheckCircle2 } from 'lucide-astro';
+---
+
+<BaseLayout
+  title="About Henry Nguyen | Principal Software Engineer"
+  description="Background, career timeline, and engineering principles of Henry Nguyen, Principal Software Engineer based in Vietnam specializing in Distributed Systems and Applied AI."
+>
+  <div class="py-16 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <!-- Profile Header -->
+      <div class="border-b border-[#64748B]/30 pb-10 mb-12">
+        <span class="font-mono text-xs uppercase tracking-widest text-[#38BDF8]">Engineering Profile</span>
+        <h1 class="font-display text-4xl sm:text-5xl font-extrabold text-[#F8FAFC] tracking-tight mt-2 mb-4">
+          Henry Nguyen
+        </h1>
+        <p class="font-display text-xl text-[#38BDF8] font-semibold mb-6">
+          Principal Software Engineer · Backend, Distributed Systems & Applied AI
+        </p>
+        <p class="text-base sm:text-lg text-[#CBD5E1] leading-relaxed">
+          I am a Principal Software Engineer (a role I stepped into at the beginning of 2026) based in Vietnam. I have a deep passion for technology, high-scale architectures, and cutting-edge Applied AI engineering.
+        </p>
+      </div>
+
+      <!-- Key Highlights -->
+      <section class="space-y-12 text-[#CBD5E1] text-base leading-relaxed">
+        <div>
+          <h2 class="font-display text-2xl font-bold text-[#F8FAFC] mb-4 flex items-center gap-2">
+            <Cpu class="h-6 w-6 text-[#38BDF8]" aria-hidden="true" />
+            <span>Autonomous AI Scale & Operational Experience</span>
+          </h2>
+          <p class="mb-4">
+            I previously managed a monthly budget of <strong>$40,000 USD/month on Claude Code</strong> and <strong>$26,000 USD/month on Codex</strong>—totaling <strong>$66,000 USD/month</strong>—to establish a fully automated, agentic pipeline for the development, testing, and operation of software for an enterprise organization in the United States.
+          </p>
+          <p>
+            This experience yielded deep empirical insights into context window efficiency, KV-cache warm reuse, and deterministic multi-agent concurrency.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl font-bold text-[#F8FAFC] mb-4 flex items-center gap-2">
+            <Database class="h-6 w-6 text-[#34D399]" aria-hidden="true" />
+            <span>Core Technical Competencies</span>
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose">
+            <div class="rounded-xl border border-[#64748B]/40 bg-[#0F172A] p-5">
+              <h3 class="font-mono text-sm font-bold text-[#38BDF8] mb-2">Distributed Systems & Backend</h3>
+              <p class="text-xs text-[#94A3B8]">
+                Spring Boot, Java 25, Spring Batch, Quartz JDBC clustering, PostgreSQL SKIP LOCKED queues, Kubernetes, high-concurrency partition fencing, distributed transactions.
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-[#64748B]/40 bg-[#0F172A] p-5">
+              <h3 class="font-mono text-sm font-bold text-[#C084FC] mb-2">Applied AI & Agent Systems</h3>
+              <p class="text-xs text-[#94A3B8]">
+                Deterministic Agent Skills architectures, token-optimal context compaction, multi-agent wave orchestration, automated CI/CD code verification pipelines.
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-[#64748B]/40 bg-[#0F172A] p-5">
+              <h3 class="font-mono text-sm font-bold text-[#34D399] mb-2">Web Platform & Graphics</h3>
+              <p class="text-xs text-[#94A3B8]">
+                WICG HTML-in-Canvas, WebGL, WebGPU, strict TypeScript, Astro, sub-pixel DOMMatrix synchronizers, WCAG 2.2 AA accessibility architecture.
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-[#64748B]/40 bg-[#0F172A] p-5">
+              <h3 class="font-mono text-sm font-bold text-[#F8FAFC] mb-2">Cloud & Edge Infrastructure</h3>
+              <p class="text-xs text-[#94A3B8]">
+                Cloudflare Workers, Static Assets, D1, KV, Durable Objects, Docker, Kubernetes container scheduling, zero-downtime Blue/Green releases.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Open to Opportunities CTA -->
+        <div class="rounded-2xl border border-[#34D399]/40 bg-[#34D399]/10 p-8 not-prose">
+          <div class="flex items-center gap-2 text-sm font-mono font-bold text-[#34D399] mb-2">
+            <CheckCircle2 class="h-5 w-5" aria-hidden="true" />
+            <span>Open for Global Opportunities</span>
+          </div>
+          <p class="text-sm text-[#CBD5E1] mb-6 leading-relaxed">
+            I am currently open to new Principal / Staff Software Engineer positions and advisory roles. If you have an exciting technical challenge or would like to collaborate, let's connect!
+          </p>
+          <a
+            href="mailto:thehenrylabs.dev@gmail.com"
+            class="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-[#34D399] px-6 py-3 font-mono text-xs font-bold text-[#090D16] hover:bg-[#6EE7B7] transition-colors"
+          >
+            <Mail class="h-4 w-4" aria-hidden="true" />
+            <span>Send Email to thehenrylabs.dev@gmail.com</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
